@@ -19,13 +19,17 @@ export enum FetchExternalServices {
 export enum FetchActions {
     LOAD_MORE = 'LOAD_MORE',
     RESET = 'RESET',
-    FILTER = 'FILTER'
+    FILTER = 'FILTER',
+    ADD = 'ADD',
+    REMOVE = 'REMOVE'
 }
 
 export type FetchMachineEvents =
     | { type: FetchActions.LOAD_MORE }
     | { type: FetchActions.RESET }
     | { type: FetchActions.FILTER; terms: string }
+    | { type: FetchActions.ADD;  data: PokeData }
+    | { type: FetchActions.REMOVE; order: number }
 
 export interface FetchContext {
     list: PokeData[]

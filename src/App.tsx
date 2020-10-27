@@ -4,6 +4,7 @@ import "./App.css";
 import { Canvas } from "./components/canvas";
 import { Container } from "./components/container";
 import { Navbar } from "./components/navbar";
+import { PokemonDetails } from "./components/pokemon-details";
 import { PokemonList } from "./components/pokemon-list";
 
 export const App: React.FC = () => {
@@ -14,6 +15,7 @@ export const App: React.FC = () => {
           <Navbar title="Pokemons" />
           <Switch>
             <Route path="/" component={PokemonList} exact />
+            <Route path="/details/:id" component={PokemonDetails} exact />
           </Switch>
         </Container>
       </BrowserRouter>

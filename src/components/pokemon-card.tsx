@@ -2,15 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import { ThemeColors } from "../shared/colors";
 import { PokeData } from "../shared/types";
-import { PillsContainer, TypePills } from "./pill";
+import { TypePills } from "./pill";
 
 const CardContainer = styled.div`
+    min-width: 10em;
+    min-height: 10em;
     padding: 0.5em;
     border-radius: 0.5em;
     background-color: ${ThemeColors.CARD};
     display: grid;
     grid-auto-flow: vertical;
     gap: 1em;
+    cursor: pointer;
+    transition: 150ms transform linear;
+    
+    &:hover {
+        transform: scale(1.05);
+    }
 `
 
 const CardImg = styled.img`
@@ -26,13 +34,17 @@ const CardTitle = styled.div`
 
 interface PokemonCardProps {
     data: PokeData
-    onSelect: (url: string) => void
+    onSelect: (order: number) => void
 }
 
-export const PokemonCard: React.FC<PokemonCardProps> = ({data}) => {
-    const {sprites, name,types} =  data;
+export const PokemonCard: React.FC<PokemonCardProps> = ({data, onSelect}) => {
+    const {sprites, name,types, order} =  data;
 
-    return (<CardContainer>
+    const handleClick = () => {
+        onSelect(order)
+    }
+
+    return (<CardContainer onClick={handleClick}>
         <CardImg src={sprites.front_default}/>
         <CardTitle>{name}</CardTitle>
         <TypePills types={types}/>
