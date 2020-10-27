@@ -1,4 +1,4 @@
-import { PokeData } from "./types"
+import { PokeData } from "../shared/types"
 
 export enum FetchStates {
     ACTIVE = 'ACTIVE',

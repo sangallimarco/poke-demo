@@ -4,8 +4,8 @@ import "./App.css";
 import { Canvas } from "./components/canvas";
 import { Container } from "./components/container";
 import { Navbar } from "./components/navbar";
-import { PokemonDetails } from "./components/pokemon-details";
-import { PokemonList } from "./components/pokemon-list";
+import { PokemonDetails } from "./views/pokemon-details";
+import { PokemonList } from "./views/pokemon-list";
 
 export const App: React.FC = () => {
   return (

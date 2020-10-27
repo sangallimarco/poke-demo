@@ -1,6 +1,6 @@
 import { isNil } from "lodash";
 import { FetchContext } from "./fetch-types";
-import { PokeData, PokeList } from "./types";
+import { PokeData, PokeList } from "../shared/types";
 
 const ROOT_API = 'https://pokeapi.co/api/v2/pokemon'
 

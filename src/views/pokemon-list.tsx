@@ -2,14 +2,14 @@ import { useMachine } from "@xstate/react";
 import { debounce } from "lodash";
 import React, { ChangeEvent, useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { fetchMachine } from "../shared/fetch-state-chart";
-import { FetchActions, FetchStates } from "../shared/fetch-types";
 import { Routes } from "../shared/routes";
-import { Button } from "./button";
-import { CardsGrid } from "./card-grid";
-import { FilterContainer } from "./filter";
-import { PokemonCard } from "./pokemon-card";
-import { TextInput } from "./text-input";
+import { fetchMachine } from "../statechart/fetch-state-chart";
+import { FetchActions, FetchStates } from "../statechart/fetch-types";
+import { Button } from "../components/button";
+import { CardsGrid } from "../components/card-grid";
+import { FilterContainer } from "../components/filter";
+import { PokemonCard } from "../components/pokemon-card";
+import { TextInput } from "../components/text-input";
 
 export const PokemonList: React.FC = () => {
   const [current, send] = useMachine(fetchMachine);
