@@ -1,7 +1,8 @@
 import { isNil } from "lodash";
 import React from "react";
 import styled from "styled-components";
-import { PokeTypeSlot, typesColorMap } from "../shared/types";
+import { typesColorMap } from "../shared/colors";
+import { PokeTypeSlot } from "../shared/types";
 
 
 export const PillsContainer = styled.div`
