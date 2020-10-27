@@ -1,19 +1,8 @@
 import { isNil } from "lodash";
 import React from "react";
 import styled from "styled-components";
-import { PokeTypeSlot } from "../shared/types";
+import { PokeTypeSlot, typesColorMap } from "../shared/types";
 
-const typesColorMap: Record<string, string> = {
-  green: "#a5c962",
-  fire: "#ee833e",
-  water: "#5791bf",
-  flying: "#c86cc6",
-  poison: '#b083c4',
-  ground: '#a8984f',
-  bug: '#7c9d4c',
-  normal: '#a4acaf',
-  psychic: '#e271b6'
-};
 
 export const PillsContainer = styled.div`
   display: flex;
@@ -31,7 +20,7 @@ interface PillProps {
 }
 
 export const Pill = styled.div<PillProps>`
-  background-color: ${({ name }) => getPillColor(name)};
+  background: ${({ name }) => getPillColor(name)};
   padding: 0.5em;
   border: none;
   border-radius: 0.2em;
