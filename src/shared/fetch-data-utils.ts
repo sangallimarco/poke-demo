@@ -26,15 +26,18 @@ export async function fetchProcess(ctx: FetchContext): Promise<Partial<FetchCont
 }
 
 export function mergeData(ctx: FetchContext, data: Partial<FetchContext>) : FetchContext {
-    return {...ctx, ...data}
+    const {list: originalList = []} = ctx
+    const {list: newList = []} = data
+    const list = [...originalList, ...newList]
+    return {...ctx, list}
 }
 
-export function resetContext(ctx: FetchContext): FetchContext {
-    return {...ctx, list: []}
+export function reset(ctx: FetchContext): FetchContext {
+    return {...ctx, list: [], offset: 0}
 }
 
 export function setFilter(ctx: FetchContext, filter: string): FetchContext {
-    return {...ctx, filter, offset: 0}
+    return {...ctx, filter, offset: 0, list: []}
 }
 
 async function fetchPokeData(url: string):  Promise<PokeData | null> {
@@ -44,4 +47,10 @@ async function fetchPokeData(url: string):  Promise<PokeData | null> {
     } catch (e) {
         return null
     }
+}
+
+export function setNextPage(ctx: FetchContext) : FetchContext {
+    const {offset: previousOffset, limit} = ctx
+    const offset = previousOffset + limit
+    return {...ctx, offset}
 }

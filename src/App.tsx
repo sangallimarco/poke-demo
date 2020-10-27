@@ -1,12 +1,11 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Navbar } from "./components/navbar";
+import "./App.css";
 import { Container } from "./components/container";
+import { Navbar } from "./components/navbar";
 import { PokemonList } from "./components/pokemon-list";
 
-function App() {
-
+export const App: React.FC = () => {
 
   return (
     <BrowserRouter>
@@ -19,5 +18,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

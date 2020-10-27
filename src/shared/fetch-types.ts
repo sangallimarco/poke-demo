@@ -1,4 +1,4 @@
-import { PokeData, PokeListExtended } from "./types"
+import { PokeData } from "./types"
 
 export enum FetchStates {
     ACTIVE = 'ACTIVE',
@@ -38,7 +38,7 @@ export interface FetchContext {
 export const FetchInitialContext: FetchContext = {
     list: [],
     offset: 0,
-    limit: 2,
+    limit: 20,
     filter: '',
     favourites: []
 }

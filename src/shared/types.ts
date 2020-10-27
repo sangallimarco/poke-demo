@@ -14,7 +14,7 @@ export interface PokeTypeSlot {
 
 export interface PokeType {
     name: string
-     url: string
+    url: string
 }
 
 export interface PokeList {
@@ -24,7 +24,7 @@ export interface PokeList {
     results: PokeData[]
 }
 
-export interface PokeListExtended extends PokeList{
+export interface PokeListExtended extends PokeList {
     pokemons: Array<PokeData>
 }
 
@@ -44,4 +44,25 @@ export const typesColorMap: Record<string, string> = {
     steel: '#9eb7b8',
     fighting: '#d56723',
     ice: '#51c4e7'
-  };
+};
+
+const size = {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px',
+}
+
+export const device = {
+    mobileS: `(min-width: ${size.mobileS})`,
+    mobileM: `(min-width: ${size.mobileM})`,
+    mobileL: `(min-width: ${size.mobileL})`,
+    tablet: `(min-width: ${size.tablet})`,
+    laptop: `(min-width: ${size.laptop})`,
+    laptopL: `(min-width: ${size.laptopL})`,
+    desktop: `(min-width: ${size.desktop})`,
+    desktopL: `(min-width: ${size.desktop})`,
+}
