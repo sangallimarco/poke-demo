@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ThemeColors } from "../shared/colors";
 import { PokeData } from "../shared/types";
+import { PillsContainer, TypePills } from "./pill";
 
 const CardContainer = styled.div`
     padding: 0.5em;
@@ -29,10 +30,13 @@ interface PokemonCardProps {
 }
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({data}) => {
-    const {sprites, name} =  data;
+    const {sprites, name,types} =  data;
+
+    debugger
 
     return (<CardContainer>
         <CardImg src={sprites.front_default}/>
         <CardTitle>{name}</CardTitle>
+        <TypePills types={types}/>
     </CardContainer>)
 }

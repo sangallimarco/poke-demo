@@ -1,4 +1,4 @@
 export enum ThemeColors {
-    CARD =  '#EEE',
-    IMG =  '#AAA'
+    CARD =  '#fff',
+    IMG =  '#f2f2f2'
 }
