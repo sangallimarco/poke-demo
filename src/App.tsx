@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Container>
-        <Navbar title="Timesheet" />
+        <Navbar title="Pokemons" />
         <Switch>
           <Route path="/" component={PokemonList} exact />
         </Switch>
