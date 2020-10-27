@@ -32,8 +32,6 @@ interface PokemonCardProps {
 export const PokemonCard: React.FC<PokemonCardProps> = ({data}) => {
     const {sprites, name,types} =  data;
 
-    debugger
-
     return (<CardContainer>
         <CardImg src={sprites.front_default}/>
         <CardTitle>{name}</CardTitle>

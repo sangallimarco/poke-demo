@@ -1,7 +1,8 @@
 export interface PokeData {
     name: string
     url: string // add props here
-
+    order: number
+    base_experience: number
     sprites: Record<string, string>
     types: PokeTypeSlot[]
 }
