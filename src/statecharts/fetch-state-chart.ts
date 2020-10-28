@@ -1,4 +1,4 @@
-import { assign, DoneInvokeEvent, Machine, MachineConfig } from 'xstate'
+import { assign, Machine, MachineConfig } from 'xstate'
 import {
   addItem,
   fetchDetailsProcess,
@@ -8,7 +8,7 @@ import {
   reset,
   setFilter,
   setNextPage,
-  setSelectedItem,
+  setSelectedItem
 } from './fetch-data-utils'
 import {
   FetchActions,
@@ -17,7 +17,7 @@ import {
   FetchMachineEvents,
   FetchService,
   FetchStates,
-  FetchStateSchema,
+  FetchStateSchema
 } from './fetch-types'
 
 export function getFetchStateChart(): MachineConfig<

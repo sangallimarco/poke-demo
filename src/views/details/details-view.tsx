@@ -50,7 +50,7 @@ export const DetailsView: React.FC = () => {
 
   return (
     <>
-     <Spinner visibility={current.matches(FetchStates.FETCHING_DETAILS)} />
+      <Spinner visibility={current.matches(FetchStates.FETCHING_DETAILS)} />
       <TitleContainer>
         <Title>
           {name} #{formattedId}{' '}

@@ -48,7 +48,7 @@ export const ListView: React.FC = () => {
     <>
       <Spinner visibility={current.matches(FetchStates.FETCHING)} />
       <Title>
-        Pokemons {filteredList.length} / {list.length}
+        Pokèmons {filteredList.length} / {list.length}
       </Title>
       <FilterContainer>
         <TextInput
@@ -73,7 +73,7 @@ export const ListView: React.FC = () => {
         onClick={handleLoadMore}
         disabled={current.matches(FetchStates.FETCHING)}
       >
-        Load More Pokèmon
+        Load More Pokèmons
       </Button>
     </>
   )

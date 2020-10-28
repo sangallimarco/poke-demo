@@ -24,7 +24,7 @@ export const FavouritesView: React.FC = () => {
 
   return (
     <>
-      <Title>My Favourites Pokemons</Title>
+      <Title>My Favourites Pokèmons</Title>
       <Grid>
         {favourites.map((pokemonData) => (
           <Card
