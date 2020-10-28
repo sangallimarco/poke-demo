@@ -7,21 +7,22 @@ import { FilterContainer } from "../components/filter";
 import { PokemonCard } from "../components/pokemon-card";
 import { TextInput } from "../components/text-input";
 import { Routes } from "../shared/routes";
+import { PokeData } from "../shared/types";
 import { FetchContext } from "../statechart/fetch-provider";
 import { FetchActions, FetchStates } from "../statechart/fetch-types";
 
 export const PokemonList: React.FC = () => {
-  // const [current, send] = useMachine(fetchMachine);
-  const [current, send] = useContext(FetchContext)
-  const history = useHistory()
+  const [current, send] = useContext(FetchContext);
+  const history = useHistory();
 
   const {
-    context: { list = [], limit },
+    context: { list = [], limit, filter },
   } = current;
 
-  const handleSelect = (order: number) => {
-    console.log(order);
-    history.push(`${Routes.DETAILS}/${order}`)
+  const handleSelect = (data: PokeData) => {
+    // const {order} = data
+    send({ type: FetchActions.SET_SELECTED, data });
+    history.push(Routes.DETAILS);
   };
 
   const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +46,8 @@ export const PokemonList: React.FC = () => {
       <FilterContainer>
         <span>Search</span>
         <TextInput
+          defaultValue={filter}
+          placeholder="Search"
           type="search"
           onChange={handleFilter}
         />

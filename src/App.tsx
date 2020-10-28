@@ -17,7 +17,7 @@ export const App: React.FC = () => {
         <Navbar title="Pokemons" />
         <Switch>
           <Route path="/" component={PokemonList} exact />
-          <Route path="/details/:id" component={PokemonDetails} exact />
+          <Route path="/details" component={PokemonDetails} />
         </Switch>
       </Container>
     </BrowserRouter>

@@ -34,14 +34,14 @@ const CardTitle = styled.div`
 
 interface PokemonCardProps {
     data: PokeData
-    onSelect: (order: number) => void
+    onSelect: (data: PokeData) => void
 }
 
 export const PokemonCard: React.FC<PokemonCardProps> = ({data, onSelect}) => {
     const {sprites, name,types, order} =  data;
 
     const handleClick = () => {
-        onSelect(order)
+        onSelect(data)
     }
 
     return (<CardContainer onClick={handleClick}>

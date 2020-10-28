@@ -7,22 +7,13 @@ export enum FetchStates {
     DISABLED = 'DISABLED',
 }
 
-export enum FetchExternalActions {
-    UPDATE = 'UPDATE',
-    UPDATE_ALL = 'UPDATE_ALL',
-}
-
-export enum FetchExternalServices {
-    HYDRATE = 'HYDRATE',
-    SAVE = 'SAVE',
-}
-
 export enum FetchActions {
     LOAD_MORE = 'LOAD_MORE',
     RESET = 'RESET',
     FILTER = 'FILTER',
     ADD = 'ADD',
-    REMOVE = 'REMOVE'
+    REMOVE = 'REMOVE',
+    SET_SELECTED = 'SET_SELECTED'
 }
 
 export type FetchMachineEvents =
@@ -31,13 +22,15 @@ export type FetchMachineEvents =
     | { type: FetchActions.FILTER; terms: string }
     | { type: FetchActions.ADD;  data: PokeData }
     | { type: FetchActions.REMOVE; order: number }
+    | { type: FetchActions.SET_SELECTED; data: PokeData }
 
 export interface FetchContext {
     list: PokeData[]
     offset: number
     limit: number
     filter: string
-    favourites: Array<PokeData>
+    favourites: PokeData[],
+    selected: PokeData | null
 }
 
 export const FetchInitialContext: FetchContext = {
@@ -45,7 +38,8 @@ export const FetchInitialContext: FetchContext = {
     offset: 0,
     limit: 20,
     filter: '',
-    favourites: []
+    favourites: [],
+    selected: null
 }
 
 export enum FetchService {

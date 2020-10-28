@@ -67,3 +67,8 @@ export function removeItem(ctx: FetchContext, order: number): Partial<FetchConte
     const favourites: PokeData[] = originalFavourites.filter((data) => data.order !== order);
     return { favourites }
 }
+
+export function setSelectedItem(ctx: FetchContext, data: PokeData): Partial<FetchContext> {
+    const selected = data
+    return { selected }
+}

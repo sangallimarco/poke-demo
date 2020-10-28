@@ -1,5 +1,5 @@
 import { assign, DoneInvokeEvent, Machine, MachineConfig } from 'xstate'
-import { addItem, fetchProcess, mergeData, removeItem, reset, setFilter, setNextPage } from './fetch-data-utils'
+import { addItem, fetchProcess, mergeData, removeItem, reset, setFilter, setNextPage, setSelectedItem } from './fetch-data-utils'
 import { FetchActions, FetchContext, FetchInitialContext, FetchMachineEvents, FetchService, FetchStates, FetchStateSchema } from './fetch-types'
 
 export function getFetchStateChart(): MachineConfig<
@@ -28,6 +28,9 @@ export function getFetchStateChart(): MachineConfig<
                     },
                     [FetchActions.REMOVE]: {
                         actions: assign((ctx, event) => removeItem(ctx, event.order))
+                    },
+                    [FetchActions.SET_SELECTED]: {
+                        actions: assign((ctx, event) => setSelectedItem(ctx, event.data))
                     }
                 },
             },
