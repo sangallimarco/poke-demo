@@ -49,9 +49,9 @@ interface SetSelectedAction {
 }
 
 interface SetList {
-    type: typeof SET_LIST
-    payload: PokeData[]
-  }
+  type: typeof SET_LIST
+  payload: PokeData[]
+}
 
 export type PokeActionTypes =
   | LoadMoreAction

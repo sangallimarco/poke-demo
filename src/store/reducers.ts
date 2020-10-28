@@ -1,7 +1,21 @@
 import { Stats } from 'fs'
 import { PAGINATION_LIMIT } from '../shared/config'
-import { PokeState, PokeActionTypes, FILTER, ADD, REMOVE, SET_LIST, SET_SELECTED } from './types'
-import { addItem, filterData, mergeData, removeItem, setSelectedItem } from './utils'
+import {
+  PokeState,
+  PokeActionTypes,
+  FILTER,
+  ADD,
+  REMOVE,
+  SET_LIST,
+  SET_SELECTED,
+} from './types'
+import {
+  addItem,
+  filterData,
+  mergeData,
+  removeItem,
+  setSelectedItem,
+} from './utils'
 
 const initialState: PokeState = {
   list: [],
@@ -41,7 +55,7 @@ export function ListReducer(
     case SET_SELECTED:
       return {
         ...state,
-        ...setSelectedItem(state, action.payload)
+        ...setSelectedItem(state, action.payload),
       }
 
     case SET_LIST:

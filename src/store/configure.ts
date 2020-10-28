@@ -4,47 +4,42 @@ import { fetchData } from './actions'
 import { ListReducer } from './reducers'
 import { PokeState } from './types'
 
-
 export const rootReducer = combineReducers({
-  list: ListReducer
+  list: ListReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
 
 export const loadState = () => {
   try {
-    const serializedState = localStorage.getItem('state');
+    const serializedState = localStorage.getItem('state')
     if (serializedState === null) {
-      return undefined;
+      return undefined
     }
-    return JSON.parse(serializedState);
+    return JSON.parse(serializedState)
   } catch (err) {
-    return undefined;
+    return undefined
   }
-};
+}
 
 export const saveState = (state: RootState) => {
   try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem('state', serializedState);
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('state', serializedState)
   } catch {
     // ignore write errors
   }
-};
+}
 
-
-const persistedState = loadState();
+const persistedState = loadState()
 
 export function configureStore() {
-  // TODO persist 
-  const store = createStore(
-    rootReducer,
-    applyMiddleware(thunkMiddleware)
-  )
-    
+  // TODO persist
+  const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+
   store.subscribe(() => {
     saveState({
-      list: store.getState().list
+      list: store.getState().list,
     })
   })
 

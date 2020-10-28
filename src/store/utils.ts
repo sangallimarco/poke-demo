@@ -27,9 +27,8 @@ async function fetchPokeData(url: string): Promise<PokeData | null> {
   }
 }
 
-export async function fetchProcess(
-  // ctx: PokeState
-): Promise<PokeData[]> {
+export async function fetchProcess(): Promise<PokeData[]> {
+// ctx: PokeState
   // const { limit, offset } = ctx
   const limit = 10
   const offset = 0
@@ -48,7 +47,6 @@ export async function fetchProcess(
 
     // remove non resolved items
     return filterData(resolvedPokemons, '')
-
   } catch (e) {
     return Promise.reject()
   }
@@ -140,8 +138,8 @@ export function setSelectedItem(
   ctx: PokeState,
   matchId: number
 ): Partial<PokeState> {
-  const {list} = ctx
-  const selected = list.find(({id}) => id === matchId )
+  const { list } = ctx
+  const selected = list.find(({ id }) => id === matchId)
   return { selected }
 }
 

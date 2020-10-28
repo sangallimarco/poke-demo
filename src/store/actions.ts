@@ -1,5 +1,5 @@
 import { PokeData } from '../shared/types'
-import { AnyAction } from 'redux';
+import { AnyAction } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import {
   ADD,
@@ -56,13 +56,13 @@ export function loadMore(): PokeActionTypes {
 export function setList(data: PokeData[]): PokeActionTypes {
   return {
     type: SET_LIST,
-    payload: data
+    payload: data,
   }
 }
 
 // Trunk
-export function fetchData(): ThunkAction<Promise<void>, {}, {}, AnyAction>  {
-  return async (dispatch:  ThunkDispatch<{}, {}, AnyAction>) => {
+export function fetchData(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
+  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
     const list = await fetchProcess()
     dispatch(setList(list))
   }
