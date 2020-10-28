@@ -1,5 +1,5 @@
 import { debounce } from 'lodash'
-import React, { ChangeEvent, useCallback, useContext } from 'react'
+import React, { ChangeEvent, useCallback, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Button } from '../../components/button'
 import { Card } from '../../components/card'
@@ -11,8 +11,13 @@ import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadMore, setFilter, setSelected } from '../../store/actions'
-import { RootState } from '../../store'
+import {
+  fetchData,
+  loadMore,
+  setFilter,
+  setSelected,
+} from '../../store/actions'
+import { RootState } from '../../store/configure'
 
 export const ListView: React.FC = () => {
   const current = useSelector((state: RootState) => state.list)
@@ -22,8 +27,8 @@ export const ListView: React.FC = () => {
   const { filteredList = [], list, filter } = current
 
   const handleSelect = (data: PokeData) => {
-    dispatch(setSelected(data))
-    history.push(Routes.DETAILS)
+    const { id } = data
+    history.push(`${Routes.DETAILS}/${id}`)
   }
 
   const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
@@ -63,11 +68,7 @@ export const ListView: React.FC = () => {
         ))}
       </Grid>
 
-      <Button
-        color="primary"
-        onClick={handleLoadMore}
-        disabled={false}
-      >
+      <Button color="primary" onClick={handleLoadMore} disabled={false}>
         Load More Pokèmons
       </Button>
     </>

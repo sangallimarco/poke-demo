@@ -1,6 +1,7 @@
 import { isNil } from 'lodash'
-import React from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { Button } from '../../components/button'
 import { TypePills } from '../../components/pills'
 import { Spinner } from '../../components/spinner'
@@ -8,8 +9,8 @@ import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { PokeData } from '../../shared/types'
-import { RootState } from '../../store'
-import { add, remove } from '../../store/actions'
+import { add, remove, setSelected } from '../../store/actions'
+import { RootState } from '../../store/configure'
 import { isInFavourites } from '../../store/utils'
 import { DetailsImg } from './details-img'
 import { DetailsLabelValue } from './details-label-value'
@@ -18,11 +19,15 @@ import { DetailsSectionTitle } from './details-section-title'
 import { DetailsStats } from './details-stats'
 
 export const DetailsView: React.FC = () => {
+  const current = useSelector((state: RootState) => state.list)
+  const dispatch = useDispatch()
+  const { id: urlId } = useParams<{ id: string }>()
 
-  const current = useSelector((state: RootState) => state.list);
-  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setSelected(parseInt(urlId, 10)))
+  }, [])
 
-  const {selected, favourites} = current
+  const { selected, favourites } = current
   // no selected pockemon
   if (isNil(selected)) {
     return <Title>Please select a Pokemon first</Title>

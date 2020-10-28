@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { createStore } from 'redux'
 import { Canvas } from './components/canvas'
 import { Container } from './components/container'
 import { Navbar } from './components/navbar'
-import { rootReducer } from './store'
+import { fetchData } from './store/actions'
+import { configureStore } from './store/configure'
 import { DetailsView } from './views/details/details-view'
 import { FavouritesView } from './views/favourites/favourites-view'
 import { ListView } from './views/list/list-view'
-import { Provider } from 'react-redux'
 
-const store = createStore(rootReducer)
+const store = configureStore()
 
 export const App: React.FC = () => {
+  useEffect(() => {
+    store.dispatch(fetchData() as any)
+  }, [])
+
   return (
     <Provider store={store}>
       <Canvas>
@@ -21,8 +25,8 @@ export const App: React.FC = () => {
             <Navbar />
             <Switch>
               <Route path="/" component={ListView} exact />
-              {/* <Route path="/favourites" component={FavouritesView} exact />
-              <Route path="/details" component={DetailsView} /> */}
+              <Route path="/favourites" component={FavouritesView} exact />
+              <Route path="/details/:id" component={DetailsView} />
             </Switch>
           </Container>
         </BrowserRouter>
