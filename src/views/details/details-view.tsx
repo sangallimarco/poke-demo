@@ -37,10 +37,10 @@ export const DetailsView: React.FC = () => {
   const renderToggleButton = (favourites: PokeData[], id: number) =>
     !isInFavourites(favourites, id) ? (
       <Button color="primary" onClick={handleAdd}>
-        Add
+        Add to Favourites
       </Button>
     ) : (
-      <Button onClick={handleRemove}>Remove</Button>
+      <Button onClick={handleRemove}>Remove from Favourites</Button>
     )
 
   const { stats = [], id, types, name, gender } = selected

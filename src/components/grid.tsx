@@ -5,7 +5,7 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
-  gap: 0.5em;
+  gap: 1em;
 
   @media ${device.tablet} {
     grid-template-columns: repeat(3, 1fr);

@@ -21,7 +21,7 @@ interface PillProps {
 
 export const Pill = styled.div<PillProps>`
   background: ${({ name }) => getPillColor(name)};
-  padding: 0.5em;
+  padding: 0.5em 1em;
   border: none;
   border-radius: 0.2em;
   font-size: 0.9em;

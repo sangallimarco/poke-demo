@@ -67,7 +67,7 @@ export const ListView: React.FC = () => {
         onClick={handleLoadMore}
         disabled={current.matches(FetchStates.FETCHING)}
       >
-        Load Next {limit}
+        Load More Pokèmon
       </Button>
     </>
   )

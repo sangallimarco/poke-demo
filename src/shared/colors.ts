@@ -3,7 +3,7 @@ export enum ThemeColors {
   CARD = '#fff',
   IMG = '#f2f2f2',
   BUTTON = '#aaa',
-  PRIMARY_BUTTON = '#ee6b2f',
+  PRIMARY_BUTTON = '#30a7d7',
   BUTTON_HOVER = '#e0855c',
   INPUT = '#eee',
   TEXT = '#000',
