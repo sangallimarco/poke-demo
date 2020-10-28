@@ -24,14 +24,22 @@ export const BarInner = styled.div<BarProps>`
 
 export const BarInnerText = styled.div`
   position: absolute;
-  left: 1em;
+  left: 0.5em;
   color: ${ThemeColors.INVERTED_TEXT};
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  font-weight: 600;
 `
 
 export const Bar: React.FC<BarProps> = ({ value, maxValue = 100 }) => {
   return (
     <BarContainer>
-      <BarInner value={value} maxValue={maxValue}></BarInner>
+      <BarInner value={value} maxValue={maxValue}>
+        <BarInnerText>{value}</BarInnerText>
+      </BarInner>
     </BarContainer>
   )
 }

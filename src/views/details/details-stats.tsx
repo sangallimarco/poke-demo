@@ -15,7 +15,7 @@ export const DetailsStatsCard = styled.div`
   background-color: ${ThemeColors.STATS_CARD};
   white-space: nowrap;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em;
 `
 
 interface DetailsStatsProps {
@@ -36,7 +36,7 @@ export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
         return (
           <>
             <SubTitle>{formattedLabel}</SubTitle>
-            <Bar value={base_stat} maxValue={250} />
+            <Bar value={base_stat} maxValue={250}/>
           </>
         )
       })}
