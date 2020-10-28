@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../shared/types'
 
 export const Title = styled.h1`
   display: flex;
@@ -10,6 +11,10 @@ export const Title = styled.h1`
 export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1em;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `

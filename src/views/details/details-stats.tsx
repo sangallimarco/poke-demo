@@ -36,7 +36,7 @@ export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
         return (
           <>
             <SubTitle>{formattedLabel}</SubTitle>
-            <Bar value={base_stat} maxValue={250}/>
+            <Bar value={base_stat} maxValue={250} />
           </>
         )
       })}

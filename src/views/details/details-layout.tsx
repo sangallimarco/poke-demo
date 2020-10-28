@@ -4,7 +4,7 @@ import { device } from '../../shared/types'
 export const DetailsLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1em;
+  gap: 2em;
 
   @media ${device.tablet} {
     grid-template-columns: repeat(2, 1fr);
