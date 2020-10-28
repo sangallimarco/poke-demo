@@ -7,9 +7,12 @@ export enum ThemeColors {
     BUTTON_HOVER = '##e0855c',
     INPUT = '#eee',
     TEXT =  '#000',
+    INVERTED_TEXT =  '#fafafa',
     SECONDARY_TEXT =  '#333',
     BORDER = '#eee',
-    STATS_CARD = '#5791bf'
+    STATS_CARD = '#5791bf',
+    NAV = '#aaa',
+    ACTIVE_NAV = '#E3350D'
 }
 
 export const typesColorMap: Record<string, string> = {

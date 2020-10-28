@@ -6,6 +6,7 @@ import { Container } from "./components/container";
 import { Navbar } from "./components/navbar";
 import { FetchProvider } from "./statechart/fetch-provider";
 import { DetailsView } from "./views/details/details-view";
+import { FavouritesView } from "./views/favourites/favourites-view";
 import { ListView } from "./views/list/list-view";
 
 export const App: React.FC = () => {
@@ -14,9 +15,10 @@ export const App: React.FC = () => {
       <Canvas>
       <BrowserRouter>
       <Container>
-        <Navbar title="Pokemons" />
+        <Navbar/>
         <Switch>
           <Route path="/" component={ListView} exact />
+          <Route path="/favourites" component={FavouritesView} />
           <Route path="/details" component={DetailsView} />
         </Switch>
       </Container>

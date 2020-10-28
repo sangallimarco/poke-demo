@@ -1,33 +1,41 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { Routes } from '../shared/routes'
+import { faBook, faList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { ThemeColors } from "../shared/colors";
+import { Routes } from "../shared/routes";
 
-export type RouteAction = () => void
+const NavContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+`;
 
-export interface NavBarMenuItem {
-  title: string
-  action: RouteAction
-  icon: React.ReactNode | null
-}
+const NavElem = styled(NavLink)`
+  background-color: ${ThemeColors.NAV};
+  display: block;
+  text-decoration: none;
+  color: ${ThemeColors.TEXT};
+  font-size: 1.3em;
+  padding: 1em;
 
+  &.active {
+    color: ${ThemeColors.INVERTED_TEXT};
+    background-color: ${ThemeColors.ACTIVE_NAV};
+  }
+`;
 
-interface NavbarProps {
-  title: string
-}
-
-export const Navbar: React.FC<NavbarProps> = ({
-  title,
-}: NavbarProps): JSX.Element => {
-  const history = useHistory()
-
-  const goToPage = (page: Routes) => () => history.push(page)
-
-
-  const navigationMenu: NavBarMenuItem[] = [
-    { title: 'List', action: goToPage(Routes.HOME), icon: null },
-  ]
+export const Navbar: React.FC = (): JSX.Element => {
 
   return (
-    <div></div>
-  )
-}
+    <NavContainer>
+      <NavElem to={Routes.HOME} exact>
+        <FontAwesomeIcon icon={faList} /> Home
+      </NavElem>
+      <NavElem to={Routes.FAVOURITES}>
+        <FontAwesomeIcon icon={faBook} /> Favourites
+      </NavElem>
+    </NavContainer>
+  );
+};
