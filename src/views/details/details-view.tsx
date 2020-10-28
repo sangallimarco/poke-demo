@@ -1,7 +1,7 @@
 import { isNil } from 'lodash'
 import React, { useContext } from 'react'
 import { Button } from '../../components/button'
-import { TypePills } from '../../components/pill'
+import { TypePills } from '../../components/pills'
 import { Spinner } from '../../components/spinner'
 import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ThemeColors } from '../shared/colors'
 import { generateImageUrl, generatePokemonNumber } from '../shared/helpers'
 import { PokeData } from '../shared/types'
-import { TypePills } from './pill'
+import { TypePills } from './pills'
 
 const CardContainer = styled.div`
   min-width: 10em;

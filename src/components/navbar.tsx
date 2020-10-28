@@ -7,13 +7,13 @@ import { ThemeColors } from '../shared/colors'
 import { Routes } from '../shared/routes'
 import { device } from '../shared/types'
 
-const NavContainer = styled.div`
+export const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1em;
 `
 
-const NavElem = styled(NavLink)`
+export const NavElem = styled(NavLink)`
   background-color: ${ThemeColors.NAV};
   display: block;
   text-decoration: none;
@@ -33,7 +33,7 @@ const NavElem = styled(NavLink)`
   }
 `
 
-const NavBarInner = styled.div`
+export const NavBarInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
