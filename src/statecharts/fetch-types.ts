@@ -37,7 +37,7 @@ export interface FetchContext {
 export const FetchInitialContext: FetchContext = {
   list: [],
   offset: 0,
-  limit: 20,
+  limit: 100,
   filter: '',
   favourites: [],
   selected: null,

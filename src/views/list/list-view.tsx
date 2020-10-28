@@ -48,7 +48,7 @@ export const ListView: React.FC = () => {
       <FilterContainer>
         <TextInput
           defaultValue={filter}
-          placeholder="Search"
+          placeholder="Please type initials of the Pokémon name or the card number [000]"
           type="search"
           onChange={handleFilter}
         />

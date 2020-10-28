@@ -1,4 +1,4 @@
-import { isNil } from 'lodash'
+import { isEmpty, isNil } from 'lodash'
 import { FetchContext } from './fetch-types'
 import { PokeData, PokeGender, PokeList } from '../shared/types'
 import { ROOT_API } from '../shared/config'
@@ -43,18 +43,19 @@ export async function fetchProcess(
       ({ url }) => fetchPokeData(url)
     )
     const resolvedPokemons = await Promise.all<PokeData | null>(pokemonsData)
-
-    // filter null results and names matching the filter value
-    // TODO add filter by id!!!!!
-    const filterRegx = new RegExp(`^${filter}`, 'i')
-    const list: PokeData[] = resolvedPokemons.filter(
-      (pokemon) => !isNil(pokemon) && filterRegx.test(pokemon.name)
-    ) as PokeData[] // TS issue with filter operator
+    const list: PokeData[] = filterData(resolvedPokemons, filter)
 
     return { list }
   } catch (e) {
     return Promise.reject()
   }
+}
+
+export function filterData(data: (PokeData | null)[], filter: string): PokeData[] {
+  const filterRegx = new RegExp(`^${filter}`, 'i')
+  return data.filter(
+    (pokemon) => !isNil(pokemon) && (filterRegx.test(pokemon.name) || filter === pokemon.id.toString() || isEmpty(filter))
+  ) as PokeData[] 
 }
 
 export async function fetchDetailsProcess(
