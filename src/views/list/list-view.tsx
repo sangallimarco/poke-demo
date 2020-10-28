@@ -17,7 +17,7 @@ export const ListView: React.FC = () => {
   const history = useHistory()
 
   const {
-    context: { list = [], limit, filter },
+    context: { filteredList = [], list,  limit, filter },
   } = current
 
   const handleSelect = (data: PokeData) => {
@@ -33,7 +33,7 @@ export const ListView: React.FC = () => {
   const setFilter = useCallback(
     debounce(
       (terms: string) => send({ type: FetchActions.FILTER, terms }),
-      500
+      150
     ),
     []
   )
@@ -44,17 +44,17 @@ export const ListView: React.FC = () => {
 
   return (
     <>
-      <Title>Pokemons</Title>
+      <Title>Pokemons {filteredList.length} / {list.length}</Title>
       <FilterContainer>
         <TextInput
           defaultValue={filter}
-          placeholder="Please type initials of the Pokémon name or the card number [000]"
+          placeholder="Please type initials of the Pokémon name or its number"
           type="search"
           onChange={handleFilter}
         />
       </FilterContainer>
       <Grid>
-        {list.map((pokemonData) => (
+        {filteredList.map((pokemonData) => (
           <Card
             data={pokemonData}
             onSelect={handleSelect}
@@ -62,13 +62,13 @@ export const ListView: React.FC = () => {
           />
         ))}
       </Grid>
-      <Button
+      {/* <Button
         color="primary"
         onClick={handleLoadMore}
         disabled={current.matches(FetchStates.FETCHING)}
       >
         Load More Pokèmon
-      </Button>
+      </Button> */}
     </>
   )
 }

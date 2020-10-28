@@ -27,6 +27,7 @@ export type FetchMachineEvents =
 
 export interface FetchContext {
   list: PokeData[]
+  filteredList: PokeData[]
   offset: number
   limit: number
   filter: string
@@ -36,8 +37,9 @@ export interface FetchContext {
 
 export const FetchInitialContext: FetchContext = {
   list: [],
+  filteredList: [],
   offset: 0,
-  limit: 100,
+  limit: 300, // this can be reduced in order to enable load more functionality
   filter: '',
   favourites: [],
   selected: null,

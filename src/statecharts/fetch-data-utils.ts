@@ -30,7 +30,7 @@ async function fetchPokeData(url: string): Promise<PokeData | null> {
 export async function fetchProcess(
   ctx: FetchContext
 ): Promise<Partial<FetchContext>> {
-  const { limit, offset, filter } = ctx
+  const { limit, offset } = ctx
 
   try {
     const resources = await fetch(
@@ -43,7 +43,9 @@ export async function fetchProcess(
       ({ url }) => fetchPokeData(url)
     )
     const resolvedPokemons = await Promise.all<PokeData | null>(pokemonsData)
-    const list: PokeData[] = filterData(resolvedPokemons, filter)
+
+    // remove non resolved items
+    const list: PokeData[] = filterData(resolvedPokemons, '')
 
     return { list }
   } catch (e) {
@@ -51,11 +53,18 @@ export async function fetchProcess(
   }
 }
 
-export function filterData(data: (PokeData | null)[], filter: string): PokeData[] {
+export function filterData(
+  data: (PokeData | null)[],
+  filter: string
+): PokeData[] {
   const filterRegx = new RegExp(`^${filter}`, 'i')
   return data.filter(
-    (pokemon) => !isNil(pokemon) && (filterRegx.test(pokemon.name) || filter === pokemon.id.toString() || isEmpty(filter))
-  ) as PokeData[] 
+    (pokemon) =>
+      !isNil(pokemon) &&
+      (filterRegx.test(pokemon.name) ||
+        filter === pokemon.id.toString() ||
+        isEmpty(filter))
+  ) as PokeData[]
 }
 
 export async function fetchDetailsProcess(
@@ -86,21 +95,26 @@ export function mergeData(
   ctx: FetchContext,
   data: Partial<FetchContext>
 ): Partial<FetchContext> {
-  const { list: originalList = [] } = ctx
+  const { list: originalList = [], filter = ''} = ctx
   const { list: newList = [] } = data
+
   const list = [...originalList, ...newList]
-  return { list }
+  const filteredList: PokeData[] = filterData(list, filter)
+
+  return { list, filteredList }
 }
 
 export function reset(ctx: FetchContext): Partial<FetchContext> {
-  return { list: [], offset: 0 }
+  return { list: [], filteredList: [], offset: 0 }
 }
 
 export function setFilter(
   ctx: FetchContext,
   filter: string
 ): Partial<FetchContext> {
-  return { filter, offset: 0, list: [] }
+  const { list } = ctx
+  const filteredList = filterData(list, filter)
+  return { filteredList, filter, offset: 0 }
 }
 
 export function setNextPage(ctx: FetchContext): Partial<FetchContext> {

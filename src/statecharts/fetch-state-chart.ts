@@ -34,8 +34,7 @@ export function getFetchStateChart(): MachineConfig<
             actions: assign((ctx) => reset(ctx)),
           },
           [FetchActions.FILTER]: {
-            actions: assign((ctx, event) => setFilter(ctx, event.terms)),
-            target: FetchStates.FETCHING,
+            actions: assign((ctx, event) => setFilter(ctx, event.terms))
           },
           [FetchActions.LOAD_MORE]: {
             actions: assign((ctx) => setNextPage(ctx)),
@@ -57,7 +56,7 @@ export function getFetchStateChart(): MachineConfig<
         invoke: {
           src: FetchService.FETCHING_SERVICE,
           onDone: {
-            actions: assign((ctx, event: DoneInvokeEvent<any>) =>
+            actions: assign((ctx, event) =>
               mergeData(ctx, event.data)
             ),
             target: FetchStates.ACTIVE,
@@ -71,8 +70,8 @@ export function getFetchStateChart(): MachineConfig<
         invoke: {
           src: FetchService.FETCHING_DETAILS_SERVICE,
           onDone: {
-            actions: assign((ctx, event: DoneInvokeEvent<any>) => {
-              console.log(event.data)
+            actions: assign((ctx, event) => {
+              console.log(event.data) // TODO remove this one
               return event.data
             }),
             target: FetchStates.ACTIVE,
