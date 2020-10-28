@@ -1,4 +1,4 @@
-import { PokeData } from "../../shared/types"
+import { PokeData } from '../../shared/types'
 
 export const ADD = 'ADD'
 interface AddAction {
@@ -12,11 +12,7 @@ interface RemoveAction {
   payload: PokeData
 }
 
-
-export type FavouriteActionTypes =
-  | AddAction
-  | RemoveAction
-
+export type FavouriteActionTypes = AddAction | RemoveAction
 
 export interface FavouriteState {
   favourites: PokeData[]

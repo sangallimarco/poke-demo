@@ -1,11 +1,5 @@
 import { addItem, removeItem } from './functions'
-import {
-  ADD,
-  FavouriteActionTypes,
-  FavouriteState,
-  REMOVE
-} from './types'
-
+import { ADD, FavouriteActionTypes, FavouriteState, REMOVE } from './types'
 
 const initialState: FavouriteState = {
   favourites: [],

@@ -1,9 +1,5 @@
 import { PokeData } from '../../shared/types'
-import {
-  ADD,
-  FavouriteActionTypes,
-  REMOVE
-} from './types'
+import { ADD, FavouriteActionTypes, REMOVE } from './types'
 
 export function add(data: PokeData): FavouriteActionTypes {
   return {

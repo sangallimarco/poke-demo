@@ -1,4 +1,4 @@
-import { PokeData } from "../../shared/types"
+import { PokeData } from '../../shared/types'
 
 export const RESET = 'RESET'
 interface ResetMessageAction {

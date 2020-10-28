@@ -6,14 +6,20 @@ import { FavouritesReducer } from './favourites/reducers'
 import { ListReducer } from './list/reducers'
 
 export const rootReducer = combineReducers({
-  list: persistReducer({
-    key: 'list',
-    storage
-  }, ListReducer),
-  favourites: persistReducer({
-    key: 'favourites',
-    storage
-  }, FavouritesReducer)
+  list: persistReducer(
+    {
+      key: 'list',
+      storage,
+    },
+    ListReducer
+  ),
+  favourites: persistReducer(
+    {
+      key: 'favourites',
+      storage,
+    },
+    FavouritesReducer
+  ),
 })
 
 export type RootState = ReturnType<typeof rootReducer>

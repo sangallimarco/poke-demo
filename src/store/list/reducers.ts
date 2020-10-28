@@ -1,15 +1,12 @@
 import { PAGINATION_LIMIT } from '../../shared/config'
 import {
-  FILTER, PokeActionTypes, ListState,
+  FILTER,
+  PokeActionTypes,
+  ListState,
   SET_LIST,
-  SET_SELECTED
+  SET_SELECTED,
 } from './types'
-import {
-  filterData,
-  mergeData,
-
-  setSelectedItem
-} from './functions'
+import { filterData, mergeData, setSelectedItem } from './functions'
 
 const initialState: ListState = {
   list: [],
