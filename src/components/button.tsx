@@ -16,9 +16,9 @@ export const Button = styled.button<ButtonProps>`
     cursor: pointer;
     opacity: 0.9;
     transition: 150ms all linear;
+    height: min-content;
 
     &:hover {
-        background-color: ${ThemeColors.BUTTON_HOVER};
         opacity: 1;
     }
 `

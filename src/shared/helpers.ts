@@ -1,4 +1,4 @@
-import { padStart } from "lodash";
+import { capitalize, padStart } from "lodash";
 import { ROOT_ASSETS } from "./config";
 
 export function generatePokemonNumber(id: number): string {
@@ -8,4 +8,9 @@ export function generatePokemonNumber(id: number): string {
 export function generateImageUrl(id: number, hiRes: boolean = false): string {
     const imgType = hiRes ? 'full' : 'detail'
     return `${ROOT_ASSETS}/${imgType}/${generatePokemonNumber(id)}.png`
+}
+
+export function formatLabel(label: string) {
+    return capitalize(label.split('-').join(' '))
+
 }

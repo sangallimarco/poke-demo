@@ -1,18 +1,21 @@
 export enum ThemeColors {
-    CONTAINER =  '#fff',
-    CARD =  '#fff',
-    IMG =  '#f2f2f2',
+    CONTAINER = '#fff',
+    CARD = '#fff',
+    IMG = '#f2f2f2',
     BUTTON = '#aaa',
     PRIMARY_BUTTON = '#ee6b2f',
-    BUTTON_HOVER = '##e0855c',
+    BUTTON_HOVER = '#e0855c',
     INPUT = '#eee',
-    TEXT =  '#000',
-    INVERTED_TEXT =  '#fafafa',
-    SECONDARY_TEXT =  '#333',
+    TEXT = '#000',
+    INVERTED_TEXT = '#fafafa',
+    SECONDARY_TEXT = '#333',
     BORDER = '#eee',
-    STATS_CARD = '#5791bf',
+    STATS_CARD = '#a0cee0',
     NAV = '#aaa',
-    ACTIVE_NAV = '#E3350D'
+    ACTIVE_NAV = '#E3350D',
+    BAR_CONTAINER = '#fff',
+    BAR = '#a0cee0'
+
 }
 
 export const typesColorMap: Record<string, string> = {

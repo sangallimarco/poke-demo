@@ -2,13 +2,15 @@ import { isNil } from "lodash";
 import React, { useContext } from "react";
 import { Button } from "../../components/button";
 import { TypePills } from "../../components/pill";
-import { Title } from "../../components/title";
+import { SubTitle } from "../../components/sub-title";
+import { Title, TitleContainer } from "../../components/title";
 import { generateImageUrl, generatePokemonNumber } from "../../shared/helpers";
 import { PokeData } from "../../shared/types";
 import { isInFavourites } from "../../statecharts/fetch-data-utils";
 import { FetchSharedContext } from "../../statecharts/fetch-provider";
 import { FetchActions } from "../../statecharts/fetch-types";
 import { DetailsImg } from "./details-img";
+import { DetailsLabelValue } from "./details-label-value";
 import { DetailsCol, DetailsLayout } from "./details-layout";
 import { DetailsSectionTitle } from "./details-section-title";
 import { DetailsStats } from "./details-stats";
@@ -21,7 +23,7 @@ export const DetailsView: React.FC = () => {
 
   // no selected pockemon
   if (isNil(selected)) {
-    return <h1>Please select a Pokemon first</h1>;
+    return <Title>Please select a Pokemon first</Title>;
   }
 
   const handleAdd = () => {
@@ -41,13 +43,15 @@ export const DetailsView: React.FC = () => {
       <Button onClick={handleRemove}>Remove</Button>
     );
 
-  const { stats = [], id, types, name, gender } = selected
-  const hiResImage = generateImageUrl(id, true)
-  const formattedId = generatePokemonNumber(id)
+  const { stats = [], id, types, name, gender } = selected;
+  const hiResImage = generateImageUrl(id, true);
+  const formattedId = generatePokemonNumber(id);
 
   return (
     <>
-      <Title>{name} #{formattedId}</Title>
+      <TitleContainer>
+        <Title>{name} #{formattedId} </Title>{renderToggleButton(favourites, id)}
+      </TitleContainer>
       <DetailsLayout>
         <DetailsCol>
           <DetailsImg src={hiResImage} />
@@ -56,10 +60,10 @@ export const DetailsView: React.FC = () => {
         </DetailsCol>
         <DetailsCol>
           <DetailsSectionTitle>Description</DetailsSectionTitle>
-          <div>here {gender?.name}</div>
-  
-          {renderToggleButton(favourites, id)}
-          {favourites.length}
+          <DetailsLabelValue>
+            <SubTitle>Gender</SubTitle>{gender?.name}
+          </DetailsLabelValue>
+          
           <DetailsSectionTitle>Type</DetailsSectionTitle>
           <TypePills types={types} />
         </DetailsCol>

@@ -55,7 +55,7 @@ export async function fetchDetailsProcess(ctx: FetchContext): Promise<Partial<Fe
     const { id } = originalSelected
 
     try {
-        const gender = await fetchAdditionalData<PokeGender>(id, 'gender' , {name: '', id: 0})
+        const gender = await fetchAdditionalData<PokeGender>(id, 'gender' , {name: 'Undefined', id: 0})
 
         const selected = { ...originalSelected, gender }
         return { selected }
