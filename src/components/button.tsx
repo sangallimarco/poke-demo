@@ -14,8 +14,11 @@ export const Button = styled.button<ButtonProps>`
     font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
+    opacity: 0.9;
+    transition: 150ms all linear;
 
     &:hover {
         background-color: ${ThemeColors.BUTTON_HOVER};
+        opacity: 1;
     }
 `

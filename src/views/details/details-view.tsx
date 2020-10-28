@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Button } from "../../components/button";
 import { TypePills } from "../../components/pill";
 import { Title } from "../../components/title";
-import { generateImageUrl } from "../../shared/helpers";
+import { generateImageUrl, generatePokemonNumber } from "../../shared/helpers";
 import { PokeData } from "../../shared/types";
 import { isInFavourites } from "../../statechart/fetch-data-utils";
 import { FetchSharedContext } from "../../statechart/fetch-provider";
@@ -41,12 +41,13 @@ export const DetailsView: React.FC = () => {
       <Button onClick={handleRemove}>Remove</Button>
     );
 
-  const { stats = [], id, types, name } = selected;
-  const hiResImage = generateImageUrl(id, true);
+  const { stats = [], id, types, name } = selected
+  const hiResImage = generateImageUrl(id, false)
+  const formattedId = generatePokemonNumber(id)
 
   return (
     <>
-      <Title>{name}</Title>
+      <Title>{name} #{formattedId}</Title>
       <DetailsLayout>
         <DetailsCol>
           <DetailsImg src={hiResImage} />

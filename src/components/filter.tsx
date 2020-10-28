@@ -14,6 +14,11 @@ export const FilterWrapper =  styled.div`
     border: 1px solid ${ThemeColors.BORDER};
     overflow: hidden;
     background-color: ${ThemeColors.INPUT};
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+    }
 `
 interface FilterContaineProps {
     children: ReactNode

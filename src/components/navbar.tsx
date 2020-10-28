@@ -18,7 +18,13 @@ const NavElem = styled(NavLink)`
   text-decoration: none;
   color: ${ThemeColors.TEXT};
   font-size: 1.3em;
-  padding: 1em;
+  padding: 0.8em 1em;
+  border-radius: 0.5em;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
 
   &.active {
     color: ${ThemeColors.INVERTED_TEXT};
