@@ -25,6 +25,7 @@ export function ListReducer(
     case FILTER:
       const filter = action.payload
       const filteredList = filterData(state.list, action.payload)
+      debugger
       return {
         ...state,
         filteredList,
