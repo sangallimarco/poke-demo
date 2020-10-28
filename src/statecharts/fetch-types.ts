@@ -1,4 +1,5 @@
 import { State } from 'xstate'
+import { PAGINATION_LIMIT } from '../shared/config'
 import { PokeData } from '../shared/types'
 
 export enum FetchStates {
@@ -39,7 +40,7 @@ export const FetchInitialContext: FetchContext = {
   list: [],
   filteredList: [],
   offset: 0,
-  limit: 300, // this can be reduced in order to enable load more functionality
+  limit: PAGINATION_LIMIT,
   filter: '',
   favourites: [],
   selected: null,

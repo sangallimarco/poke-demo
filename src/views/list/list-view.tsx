@@ -5,6 +5,7 @@ import { Button } from '../../components/button'
 import { Card } from '../../components/card'
 import { FilterContainer } from '../../components/filter'
 import { Grid } from '../../components/grid'
+import { Spinner } from '../../components/spinner'
 import { TextInput } from '../../components/text-input'
 import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
@@ -17,7 +18,7 @@ export const ListView: React.FC = () => {
   const history = useHistory()
 
   const {
-    context: { filteredList = [], list,  limit, filter },
+    context: { filteredList = [], list, limit, filter },
   } = current
 
   const handleSelect = (data: PokeData) => {
@@ -38,13 +39,17 @@ export const ListView: React.FC = () => {
     []
   )
 
+  // uncomment loadMode button and set a smaller limit
   const handleLoadMore = () => {
     send({ type: FetchActions.LOAD_MORE })
   }
 
   return (
     <>
-      <Title>Pokemons {filteredList.length} / {list.length}</Title>
+      <Spinner visibility={current.matches(FetchStates.FETCHING)} />
+      <Title>
+        Pokemons {filteredList.length} / {list.length}
+      </Title>
       <FilterContainer>
         <TextInput
           defaultValue={filter}
@@ -62,13 +67,14 @@ export const ListView: React.FC = () => {
           />
         ))}
       </Grid>
-      {/* <Button
+
+      <Button
         color="primary"
         onClick={handleLoadMore}
         disabled={current.matches(FetchStates.FETCHING)}
       >
         Load More Pokèmon
-      </Button> */}
+      </Button>
     </>
   )
 }

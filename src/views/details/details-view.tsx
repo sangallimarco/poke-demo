@@ -2,13 +2,14 @@ import { isNil } from 'lodash'
 import React, { useContext } from 'react'
 import { Button } from '../../components/button'
 import { TypePills } from '../../components/pill'
+import { Spinner } from '../../components/spinner'
 import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { PokeData } from '../../shared/types'
 import { isInFavourites } from '../../statecharts/fetch-data-utils'
 import { FetchSharedContext } from '../../statecharts/fetch-provider'
-import { FetchActions } from '../../statecharts/fetch-types'
+import { FetchActions, FetchStates } from '../../statecharts/fetch-types'
 import { DetailsImg } from './details-img'
 import { DetailsLabelValue } from './details-label-value'
 import { DetailsCol, DetailsLayout } from './details-layout'
@@ -49,6 +50,7 @@ export const DetailsView: React.FC = () => {
 
   return (
     <>
+     <Spinner visibility={current.matches(FetchStates.FETCHING_DETAILS)} />
       <TitleContainer>
         <Title>
           {name} #{formattedId}{' '}

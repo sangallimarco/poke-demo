@@ -32,4 +32,5 @@ export const typesColorMap: Record<string, string> = {
   steel: '#9eb7b8',
   fighting: '#d56723',
   ice: '#51c4e7',
+  electric: '#eed535'
 }

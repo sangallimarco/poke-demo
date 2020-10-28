@@ -95,7 +95,7 @@ export function mergeData(
   ctx: FetchContext,
   data: Partial<FetchContext>
 ): Partial<FetchContext> {
-  const { list: originalList = [], filter = ''} = ctx
+  const { list: originalList = [], filter = '' } = ctx
   const { list: newList = [] } = data
 
   const list = [...originalList, ...newList]
