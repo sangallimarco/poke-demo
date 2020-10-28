@@ -8,7 +8,7 @@ import {
   reset,
   setFilter,
   setNextPage,
-  setSelectedItem
+  setSelectedItem,
 } from './fetch-data-utils'
 import {
   FetchActions,
@@ -17,7 +17,7 @@ import {
   FetchMachineEvents,
   FetchService,
   FetchStates,
-  FetchStateSchema
+  FetchStateSchema,
 } from './fetch-types'
 
 export function getFetchStateChart(): MachineConfig<
@@ -68,10 +68,7 @@ export function getFetchStateChart(): MachineConfig<
         invoke: {
           src: FetchService.FETCHING_DETAILS_SERVICE,
           onDone: {
-            actions: assign((ctx, event) => {
-              console.log(event.data) // TODO remove this one
-              return event.data
-            }),
+            actions: assign((ctx, event) => event.data),
             target: FetchStates.ACTIVE,
           },
           onError: {

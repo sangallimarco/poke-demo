@@ -18,11 +18,10 @@ export const ListView: React.FC = () => {
   const history = useHistory()
 
   const {
-    context: { filteredList = [], list, limit, filter },
+    context: { filteredList = [], list, filter },
   } = current
 
   const handleSelect = (data: PokeData) => {
-    // const {order} = data
     send({ type: FetchActions.SET_SELECTED, data })
     history.push(Routes.DETAILS)
   }
@@ -39,7 +38,6 @@ export const ListView: React.FC = () => {
     []
   )
 
-  // uncomment loadMode button and set a smaller limit
   const handleLoadMore = () => {
     send({ type: FetchActions.LOAD_MORE })
   }
