@@ -20,7 +20,7 @@ export function getFetchStateChart(): MachineConfig<
                         target: FetchStates.FETCHING
                     },
                     [FetchActions.LOAD_MORE]: {
-                        actions: assign((ctx, event) => setNextPage(ctx)),
+                        actions: assign((ctx) => setNextPage(ctx)),
                         target: FetchStates.FETCHING
                     },
                     [FetchActions.ADD]: {
@@ -49,7 +49,6 @@ export function getFetchStateChart(): MachineConfig<
         }
     }
 }
-
 
 export const fetchMachine = Machine<FetchContext, FetchMachineEvents>(
     getFetchStateChart(),

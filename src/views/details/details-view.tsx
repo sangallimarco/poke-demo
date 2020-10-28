@@ -42,7 +42,7 @@ export const DetailsView: React.FC = () => {
     );
 
   const { stats = [], id, types, name } = selected
-  const hiResImage = generateImageUrl(id, false)
+  const hiResImage = generateImageUrl(id, true)
   const formattedId = generatePokemonNumber(id)
 
   return (
