@@ -26,5 +26,4 @@ describe('TypePills', () => {
     expect(wrapper.find(PillsContainer).length).toBe(1)
     expect(wrapper.find(Pill).length).toBe(2)
   })
-
 })
