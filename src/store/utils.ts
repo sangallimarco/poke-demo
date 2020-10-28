@@ -28,7 +28,7 @@ async function fetchPokeData(url: string): Promise<PokeData | null> {
 }
 
 export async function fetchProcess(): Promise<PokeData[]> {
-// ctx: PokeState
+  // ctx: PokeState
   // const { limit, offset } = ctx
   const limit = 10
   const offset = 0
