@@ -6,12 +6,11 @@ import { Grid } from '../../components/grid'
 import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
-import { setSelected } from '../../store/actions'
+import { setSelected } from '../../store/list/actions'
 import { RootState } from '../../store/configure'
 
 export const FavouritesView: React.FC = () => {
-  const current = useSelector((state: RootState) => state.list)
-  const dispatch = useDispatch()
+  const current = useSelector((state: RootState) => state.favourites)
   const history = useHistory()
 
   const { favourites = [] } = current

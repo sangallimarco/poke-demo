@@ -1,17 +1,14 @@
-import { PokeData } from '../shared/types'
+import { PokeData } from '../../shared/types'
 import { AnyAction } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import {
-  ADD,
   FILTER,
-  LOAD_MORE,
   PokeActionTypes,
-  REMOVE,
   RESET,
   SET_LIST,
   SET_SELECTED,
 } from './types'
-import { fetchProcess } from './utils'
+import { fetchProcess } from './functions'
 
 export function setFilter(filter: string): PokeActionTypes {
   return {
@@ -30,26 +27,6 @@ export function setSelected(id: number): PokeActionTypes {
   return {
     type: SET_SELECTED,
     payload: id,
-  }
-}
-
-export function add(data: PokeData): PokeActionTypes {
-  return {
-    type: ADD,
-    payload: data,
-  }
-}
-
-export function remove(data: PokeData): PokeActionTypes {
-  return {
-    type: REMOVE,
-    payload: data,
-  }
-}
-
-export function loadMore(): PokeActionTypes {
-  return {
-    type: LOAD_MORE,
   }
 }
 

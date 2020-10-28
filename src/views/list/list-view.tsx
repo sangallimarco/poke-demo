@@ -1,7 +1,7 @@
 import { debounce } from 'lodash'
-import React, { ChangeEvent, useCallback, useContext, useEffect } from 'react'
+import React, { ChangeEvent, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { Button } from '../../components/button'
 import { Card } from '../../components/card'
 import { FilterContainer } from '../../components/filter'
 import { Grid } from '../../components/grid'
@@ -10,14 +10,8 @@ import { TextInput } from '../../components/text-input'
 import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  fetchData,
-  loadMore,
-  setFilter,
-  setSelected,
-} from '../../store/actions'
 import { RootState } from '../../store/configure'
+import { setFilter } from '../../store/list/actions'
 
 export const ListView: React.FC = () => {
   const current = useSelector((state: RootState) => state.list)
@@ -39,10 +33,6 @@ export const ListView: React.FC = () => {
     debounce((terms: string) => dispatch(setFilter(filter)), 150),
     []
   )
-
-  const handleLoadMore = () => {
-    dispatch(loadMore())
-  }
 
   return (
     <>
@@ -67,10 +57,6 @@ export const ListView: React.FC = () => {
           />
         ))}
       </Grid>
-
-      <Button color="primary" onClick={handleLoadMore} disabled={false}>
-        Load More Pokèmons
-      </Button>
     </>
   )
 }

@@ -1,11 +1,19 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
+import { persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import thunkMiddleware from 'redux-thunk'
-import { fetchData } from './actions'
-import { ListReducer } from './reducers'
-import { PokeState } from './types'
+import { FavouritesReducer } from './favourites/reducers'
+import { ListReducer } from './list/reducers'
 
 export const rootReducer = combineReducers({
-  list: ListReducer,
+  list: persistReducer({
+    key: 'list',
+    storage
+  }, ListReducer),
+  favourites: persistReducer({
+    key: 'favourites',
+    storage
+  }, FavouritesReducer)
 })
 
 export type RootState = ReturnType<typeof rootReducer>
@@ -36,12 +44,5 @@ const persistedState = loadState()
 export function configureStore() {
   // TODO persist
   const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
-
-  store.subscribe(() => {
-    saveState({
-      list: store.getState().list,
-    })
-  })
-
   return store
 }

@@ -9,9 +9,10 @@ import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { PokeData } from '../../shared/types'
-import { add, remove, setSelected } from '../../store/actions'
+import { setSelected } from '../../store/list/actions'
+import { add, remove } from '../../store/favourites/actions'
 import { RootState } from '../../store/configure'
-import { isInFavourites } from '../../store/utils'
+import { isInFavourites } from '../../store/list/functions'
 import { DetailsImg } from './details-img'
 import { DetailsLabelValue } from './details-label-value'
 import { DetailsCol, DetailsLayout } from './details-layout'
@@ -19,7 +20,7 @@ import { DetailsSectionTitle } from './details-section-title'
 import { DetailsStats } from './details-stats'
 
 export const DetailsView: React.FC = () => {
-  const current = useSelector((state: RootState) => state.list)
+  const current = useSelector((state: RootState) => state)
   const dispatch = useDispatch()
   const { id: urlId } = useParams<{ id: string }>()
 
@@ -27,7 +28,10 @@ export const DetailsView: React.FC = () => {
     dispatch(setSelected(parseInt(urlId, 10)))
   }, [])
 
-  const { selected, favourites } = current
+  const {
+    list: { selected },
+    favourites: { favourites },
+  } = current
   // no selected pockemon
   if (isNil(selected)) {
     return <Title>Please select a Pokemon first</Title>

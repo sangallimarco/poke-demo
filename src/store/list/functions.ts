@@ -1,7 +1,7 @@
 import { isEmpty, isNil } from 'lodash'
-import { PokeData, PokeGender, PokeList } from '../shared/types'
-import { ROOT_API } from '../shared/config'
-import { PokeState } from './types'
+import { PokeData, PokeGender, PokeList } from '../../shared/types'
+import { ROOT_API } from '../../shared/config'
+import { ListState } from './types'
 
 // additional API endpoint can return 404 iven though the pokemon id is correct, please pass a default value
 async function fetchAdditionalData<T>(
@@ -28,7 +28,7 @@ async function fetchPokeData(url: string): Promise<PokeData | null> {
 }
 
 export async function fetchProcess(): Promise<PokeData[]> {
-  // ctx: PokeState
+  // ctx: ListState
   // const { limit, offset } = ctx
   const limit = 10
   const offset = 0
@@ -68,8 +68,8 @@ export function filterData(
 }
 
 export async function fetchDetailsProcess(
-  ctx: PokeState
-): Promise<Partial<PokeState>> {
+  ctx: ListState
+): Promise<Partial<ListState>> {
   const { selected: originalSelected } = ctx
 
   if (isNil(originalSelected)) {
@@ -92,9 +92,9 @@ export async function fetchDetailsProcess(
 }
 
 export function mergeData(
-  ctx: PokeState,
+  ctx: ListState,
   newList: PokeData[]
-): Partial<PokeState> {
+): Partial<ListState> {
   const { list: originalList = [], filter = '' } = ctx
 
   const list = [...originalList, ...newList]
@@ -103,41 +103,26 @@ export function mergeData(
   return { list, filteredList }
 }
 
-export function reset(ctx: PokeState): Partial<PokeState> {
+export function reset(ctx: ListState): Partial<ListState> {
   return { list: [], filteredList: [], offset: 0 }
 }
 
-export function setFilter(ctx: PokeState, filter: string): Partial<PokeState> {
+export function setFilter(ctx: ListState, filter: string): Partial<ListState> {
   const { list } = ctx
   const filteredList = filterData(list, filter)
   return { filteredList, filter, offset: 0 }
 }
 
-export function setNextPage(ctx: PokeState): Partial<PokeState> {
+export function setNextPage(ctx: ListState): Partial<ListState> {
   const { offset: previousOffset, limit } = ctx
   const offset = previousOffset + limit
   return { offset }
 }
 
-export function addItem(ctx: PokeState, data: PokeData): Partial<PokeState> {
-  const { favourites: originalFavourites } = ctx
-  const favourites: PokeData[] = [...originalFavourites, data]
-  return { favourites }
-}
-
-export function removeItem(ctx: PokeState, data: PokeData): Partial<PokeState> {
-  const { favourites: originalFavourites } = ctx
-  const { id: matchingId } = data
-  const favourites: PokeData[] = originalFavourites.filter(
-    ({ id }) => id !== matchingId
-  )
-  return { favourites }
-}
-
 export function setSelectedItem(
-  ctx: PokeState,
+  ctx: ListState,
   matchId: number
-): Partial<PokeState> {
+): Partial<ListState> {
   const { list } = ctx
   const selected = list.find(({ id }) => id === matchId)
   return { selected }
