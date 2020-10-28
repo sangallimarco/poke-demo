@@ -7,7 +7,7 @@ export const Button = styled.button`
     padding: 0.5em;
     border: none;
     border-radius: 0.2em;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 600;
     cursor: pointer;
 

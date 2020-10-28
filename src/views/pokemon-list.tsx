@@ -44,7 +44,6 @@ export const PokemonList: React.FC = () => {
   return (
     <>
       <FilterContainer>
-        <span>Search</span>
         <TextInput
           defaultValue={filter}
           placeholder="Search"

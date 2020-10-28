@@ -4,7 +4,10 @@ export enum ThemeColors {
     IMG =  '#f2f2f2',
     BUTTON = '#ee6b2f',
     BUTTON_HOVER = '##e0855c',
-    INPUT = '#999999'
+    INPUT = '#eee',
+    TEXT =  '#000',
+    SECONDARY_TEXT =  '#333',
+    BORDER = '#eee'
 }
 
 export const typesColorMap: Record<string, string> = {
