@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { ThemeColors } from '../shared/colors'
 import { Routes } from '../shared/routes'
+import { device } from '../shared/types'
 
 const NavContainer = styled.div`
   display: flex;
@@ -32,14 +33,30 @@ const NavElem = styled(NavLink)`
   }
 `
 
+const NavBarInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    gap: 0.5em;
+  }
+`
+
 export const Navbar: React.FC = (): JSX.Element => {
   return (
     <NavContainer>
       <NavElem to={Routes.HOME} exact>
-        <FontAwesomeIcon icon={faList} /> Home
+        <NavBarInner>
+          <FontAwesomeIcon icon={faList} /> Home
+        </NavBarInner>
       </NavElem>
       <NavElem to={Routes.FAVOURITES}>
-        <FontAwesomeIcon icon={faBook} /> Favourites
+        <NavBarInner>
+          {' '}
+          <FontAwesomeIcon icon={faBook} /> Favourites
+        </NavBarInner>
       </NavElem>
     </NavContainer>
   )

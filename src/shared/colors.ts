@@ -4,7 +4,7 @@ export enum ThemeColors {
   IMG = '#f2f2f2',
   BUTTON = '#ccc',
   PRIMARY_BUTTON = '#30a7d7',
-   INPUT = '#eee',
+  INPUT = '#eee',
   TEXT = '#000',
   INVERTED_TEXT = '#fafafa',
   SECONDARY_TEXT = '#333',
