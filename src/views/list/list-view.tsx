@@ -2,16 +2,15 @@ import { debounce } from "lodash";
 import React, { ChangeEvent, useCallback, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "../../components/button";
-import { Grid } from "../../components/grid";
-import { FilterContainer } from "../../components/filter";
 import { Card } from "../../components/card";
+import { FilterContainer } from "../../components/filter";
+import { Grid } from "../../components/grid";
 import { TextInput } from "../../components/text-input";
+import { Title } from "../../components/title";
 import { Routes } from "../../shared/routes";
 import { PokeData } from "../../shared/types";
-import { FetchSharedContext } from "../../statechart/fetch-provider";
-import { FetchActions, FetchStates } from "../../statechart/fetch-types";
-import { Canvas } from "../../components/canvas";
-import { Title } from "../../components/title";
+import { FetchSharedContext } from "../../statecharts/fetch-provider";
+import { FetchActions, FetchStates } from "../../statecharts/fetch-types";
 
 export const ListView: React.FC = () => {
   const [current, send] = useContext(FetchSharedContext);

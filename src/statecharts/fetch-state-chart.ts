@@ -1,5 +1,5 @@
 import { assign, DoneInvokeEvent, Machine, MachineConfig } from 'xstate'
-import { addItem, fetchProcess, mergeData, removeItem, reset, setFilter, setNextPage, setSelectedItem } from './fetch-data-utils'
+import { addItem, fetchDetailsProcess, fetchProcess, mergeData, removeItem, reset, setFilter, setNextPage, setSelectedItem } from './fetch-data-utils'
 import { FetchActions, FetchContext, FetchInitialContext, FetchMachineEvents, FetchService, FetchStates, FetchStateSchema } from './fetch-types'
 
 export function getFetchStateChart(): MachineConfig<
@@ -30,7 +30,8 @@ export function getFetchStateChart(): MachineConfig<
                         actions: assign((ctx, event) => removeItem(ctx, event.data))
                     },
                     [FetchActions.SET_SELECTED]: {
-                        actions: assign((ctx, event) => setSelectedItem(ctx, event.data))
+                        actions: assign((ctx, event) => setSelectedItem(ctx, event.data)),
+                        target: FetchStates.FETCHING_DETAILS
                     }
                 },
             },
@@ -39,6 +40,21 @@ export function getFetchStateChart(): MachineConfig<
                     src: FetchService.FETCHING_SERVICE,
                     onDone: {
                         actions: assign((ctx, event: DoneInvokeEvent<any>) => mergeData(ctx, event.data)),
+                        target: FetchStates.ACTIVE,
+                    },
+                    onError: {
+                        target: FetchStates.ACTIVE,
+                    },
+                },
+            },
+            [FetchStates.FETCHING_DETAILS]: {
+                invoke: {
+                    src: FetchService.FETCHING_DETAILS_SERVICE,
+                    onDone: {
+                        actions: assign((ctx, event: DoneInvokeEvent<any>) => {
+                            console.log(event.data)
+                            return event.data
+                        }),
                         target: FetchStates.ACTIVE,
                     },
                     onError: {
@@ -54,7 +70,8 @@ export const fetchMachine = Machine<FetchContext, FetchMachineEvents>(
     getFetchStateChart(),
     {
         services: {
-            [FetchService.FETCHING_SERVICE]: (ctx) => fetchProcess(ctx)
+            [FetchService.FETCHING_SERVICE]: (ctx) => fetchProcess(ctx),
+            [FetchService.FETCHING_DETAILS_SERVICE]: (ctx) => fetchDetailsProcess(ctx)
         },
     },
     {

@@ -5,9 +5,9 @@ import { TypePills } from "../../components/pill";
 import { Title } from "../../components/title";
 import { generateImageUrl, generatePokemonNumber } from "../../shared/helpers";
 import { PokeData } from "../../shared/types";
-import { isInFavourites } from "../../statechart/fetch-data-utils";
-import { FetchSharedContext } from "../../statechart/fetch-provider";
-import { FetchActions, FetchContext } from "../../statechart/fetch-types";
+import { isInFavourites } from "../../statecharts/fetch-data-utils";
+import { FetchSharedContext } from "../../statecharts/fetch-provider";
+import { FetchActions } from "../../statecharts/fetch-types";
 import { DetailsImg } from "./details-img";
 import { DetailsCol, DetailsLayout } from "./details-layout";
 import { DetailsSectionTitle } from "./details-section-title";
@@ -41,7 +41,7 @@ export const DetailsView: React.FC = () => {
       <Button onClick={handleRemove}>Remove</Button>
     );
 
-  const { stats = [], id, types, name } = selected
+  const { stats = [], id, types, name, gender } = selected
   const hiResImage = generateImageUrl(id, true)
   const formattedId = generatePokemonNumber(id)
 
@@ -56,6 +56,7 @@ export const DetailsView: React.FC = () => {
         </DetailsCol>
         <DetailsCol>
           <DetailsSectionTitle>Description</DetailsSectionTitle>
+          <div>here {gender?.name}</div>
   
           {renderToggleButton(favourites, id)}
           {favourites.length}

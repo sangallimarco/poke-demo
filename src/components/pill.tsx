@@ -1,7 +1,7 @@
 import { isNil } from "lodash";
 import React from "react";
 import styled from "styled-components";
-import { typesColorMap } from "../shared/colors";
+import { ThemeColors, typesColorMap } from "../shared/colors";
 import { PokeTypeSlot } from "../shared/types";
 
 
@@ -25,7 +25,9 @@ export const Pill = styled.div<PillProps>`
   padding: 0.5em;
   border: none;
   border-radius: 0.2em;
-  font-size: 0.8em;
+  font-size: 0.9em;
+  color: ${ThemeColors.INVERTED_TEXT};
+  font-weight: 600;
 `;
 
 interface TypePillsProps {

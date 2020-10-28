@@ -4,6 +4,7 @@ import { PokeData } from "../shared/types"
 export enum FetchStates {
     ACTIVE = 'ACTIVE',
     FETCHING = 'FETCHING',
+    FETCHING_DETAILS = 'FETCHING_DETAILS',
     DISABLED = 'DISABLED',
 }
 
@@ -44,12 +45,14 @@ export const FetchInitialContext: FetchContext = {
 
 export enum FetchService {
     FETCHING_SERVICE = 'FETCHING_SERVICE',
+    FETCHING_DETAILS_SERVICE = 'FETCHING_DETAILS_SERVICE',
 }
 
 export interface FetchStateSchema {
     states: {
         [FetchStates.ACTIVE]: {}
-        [FetchStates.FETCHING]: {}
+        [FetchStates.FETCHING]: {},
+        [FetchStates.FETCHING_DETAILS]: {}
     }
 }
 

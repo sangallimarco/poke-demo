@@ -9,17 +9,30 @@ export interface PokeData {
     stats: PokeStat[]
     weight: number
     moves: PokeMove[]
+    abilities: PokeAbility[]
+    description?: string
+    gender?: PokeGender
+}
+
+export interface PokeGender {
+    id: number
+    name: string
 }
 
 export interface PokeStat {
     base_stat:  number
     effort: 0
     stat: PokeResource
-
 }
 
 export interface PokeMove {
     move: PokeResource
+}
+
+export interface PokeAbility {
+    ability: PokeResource
+    is_hidden: boolean
+    slot: number
 }
 
 export interface PokeTypeSlot {

@@ -5,8 +5,8 @@ import { Grid } from "../../components/grid";
 import { Title } from "../../components/title";
 import { Routes } from "../../shared/routes";
 import { PokeData } from "../../shared/types";
-import { FetchSharedContext } from "../../statechart/fetch-provider";
-import { FetchActions } from "../../statechart/fetch-types";
+import { FetchSharedContext } from "../../statecharts/fetch-provider";
+import { FetchActions } from "../../statecharts/fetch-types";
 
 export const FavouritesView: React.FC = () => {
   const [current, send] = useContext(FetchSharedContext);
@@ -24,7 +24,7 @@ export const FavouritesView: React.FC = () => {
 
   return (
     <>
-      <Title>Favourites Pokemons</Title>
+      <Title>My Favourites Pokemons</Title>
       <Grid>
         {favourites.map((pokemonData) => (
           <Card

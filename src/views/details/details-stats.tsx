@@ -15,11 +15,12 @@ interface DetailsStatsProps {
   stats: PokeStat[];
 }
 
+
 export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
   return (
     <DetailsStatsCard>
       {stats.map((stat) => {
-        const { base_stat, effort, stat: {name: statName} } = stat;
+        const { base_stat, stat: {name: statName} } = stat;
 
       return <div>{statName}: {base_stat}</div>;
       })}

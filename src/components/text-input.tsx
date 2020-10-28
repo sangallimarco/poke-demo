@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ThemeColors } from "../shared/colors";
 
 export const TextInput = styled.input`
     width: 100%;
