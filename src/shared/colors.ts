@@ -7,7 +7,8 @@ export enum ThemeColors {
     INPUT = '#eee',
     TEXT =  '#000',
     SECONDARY_TEXT =  '#333',
-    BORDER = '#eee'
+    BORDER = '#eee',
+    STATS_CARD = '#5791bf'
 }
 
 export const typesColorMap: Record<string, string> = {

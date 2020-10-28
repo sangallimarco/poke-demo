@@ -1,10 +1,11 @@
 import { padStart } from "lodash";
 import { ROOT_ASSETS } from "./config";
 
-export function generatePokemonNumber(order: number): string {
-    return padStart(order.toString(), 3, '0');
+export function generatePokemonNumber(id: number): string {
+    return padStart(id.toString(), 3, '0');
 }
 
-export function generateImageUrl(order: number): string {
-    return `${ROOT_ASSETS}/${generatePokemonNumber(order)}.png`
+export function generateImageUrl(id: number, hiRes: boolean = false): string {
+    const imgType = hiRes ? 'full' : 'detail'
+    return `${ROOT_ASSETS}/${imgType}/${generatePokemonNumber(id)}.png`
 }

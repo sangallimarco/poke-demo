@@ -2,17 +2,26 @@ export interface PokeData {
     name: string
     url: string // add props here
     order: number
+    id: number
     base_experience: number
     sprites: Record<string, string>
     types: PokeTypeSlot[]
+    stats: PokeStat[]
+}
+
+export interface PokeStat {
+    base_stat:  number
+    effort: 0
+    stat: PokeResource
+
 }
 
 export interface PokeTypeSlot {
     slot: number
-    type: PokeType
+    type: PokeResource
 }
 
-export interface PokeType {
+export interface PokeResource {
     name: string
     url: string
 }

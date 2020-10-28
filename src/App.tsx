@@ -5,8 +5,8 @@ import { Canvas } from "./components/canvas";
 import { Container } from "./components/container";
 import { Navbar } from "./components/navbar";
 import { FetchProvider } from "./statechart/fetch-provider";
-import { PokemonDetails } from "./views/pokemon-details";
-import { PokemonList } from "./views/pokemon-list";
+import { DetailsView } from "./views/details/details-view";
+import { ListView } from "./views/list/list-view";
 
 export const App: React.FC = () => {
   return (
@@ -16,8 +16,8 @@ export const App: React.FC = () => {
       <Container>
         <Navbar title="Pokemons" />
         <Switch>
-          <Route path="/" component={PokemonList} exact />
-          <Route path="/details" component={PokemonDetails} />
+          <Route path="/" component={ListView} exact />
+          <Route path="/details" component={DetailsView} />
         </Switch>
       </Container>
     </BrowserRouter>

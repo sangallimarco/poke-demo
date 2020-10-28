@@ -1,17 +1,17 @@
 import { debounce } from "lodash";
 import React, { ChangeEvent, useCallback, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Button } from "../components/button";
-import { CardsGrid } from "../components/card-grid";
-import { FilterContainer } from "../components/filter";
-import { PokemonCard } from "../components/pokemon-card";
-import { TextInput } from "../components/text-input";
-import { Routes } from "../shared/routes";
-import { PokeData } from "../shared/types";
-import { FetchContext } from "../statechart/fetch-provider";
-import { FetchActions, FetchStates } from "../statechart/fetch-types";
+import { Button } from "../../components/button";
+import { Grid } from "../../components/grid";
+import { FilterContainer } from "../../components/filter";
+import { Card } from "../../components/card";
+import { TextInput } from "../../components/text-input";
+import { Routes } from "../../shared/routes";
+import { PokeData } from "../../shared/types";
+import { FetchContext } from "../../statechart/fetch-provider";
+import { FetchActions, FetchStates } from "../../statechart/fetch-types";
 
-export const PokemonList: React.FC = () => {
+export const ListView: React.FC = () => {
   const [current, send] = useContext(FetchContext);
   const history = useHistory();
 
@@ -51,15 +51,15 @@ export const PokemonList: React.FC = () => {
           onChange={handleFilter}
         />
       </FilterContainer>
-      <CardsGrid>
+      <Grid>
         {list.map((pokemonData) => (
-          <PokemonCard
+          <Card
             data={pokemonData}
             onSelect={handleSelect}
             key={pokemonData.order}
           />
         ))}
-      </CardsGrid>
+      </Grid>
       <Button
         onClick={handleLoadMore}
         disabled={current.matches(FetchStates.FETCHING)}

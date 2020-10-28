@@ -43,7 +43,7 @@ interface PokemonCardProps {
   onSelect: (data: PokeData) => void;
 }
 
-export const PokemonCard: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
+export const Card: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
   const { sprites, name, types, order } = data;
 
   const hiResImage = generateImageUrl(order);
