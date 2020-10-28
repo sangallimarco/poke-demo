@@ -27,7 +27,7 @@ export function getFetchStateChart(): MachineConfig<
                         actions: assign((ctx, event) => addItem(ctx, event.data))
                     },
                     [FetchActions.REMOVE]: {
-                        actions: assign((ctx, event) => removeItem(ctx, event.order))
+                        actions: assign((ctx, event) => removeItem(ctx, event.data))
                     },
                     [FetchActions.SET_SELECTED]: {
                         actions: assign((ctx, event) => setSelectedItem(ctx, event.data))

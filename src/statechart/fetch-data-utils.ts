@@ -61,13 +61,18 @@ export function addItem(ctx: FetchContext, data: PokeData): Partial<FetchContext
     return { favourites }
 }
 
-export function removeItem(ctx: FetchContext, id: number): Partial<FetchContext> {
+export function removeItem(ctx: FetchContext, data: PokeData): Partial<FetchContext> {
     const { favourites: originalFavourites } = ctx
-    const favourites: PokeData[] = originalFavourites.filter((data) => data.id !== id);
+    const {id: matchingId} = data
+    const favourites: PokeData[] = originalFavourites.filter(({id}) => id !== matchingId);
     return { favourites }
 }
 
 export function setSelectedItem(ctx: FetchContext, data: PokeData): Partial<FetchContext> {
     const selected = data
     return { selected }
+}
+
+export function isInFavourites(favourites: PokeData[], matchingId: number): boolean {
+    return favourites.some(({id})=> id === matchingId)
 }

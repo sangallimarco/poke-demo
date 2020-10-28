@@ -3,7 +3,7 @@ import React, { createContext, ReactNode } from "react";
 import { fetchMachine } from "./fetch-state-chart";
 import { FetchCurrent, FetchSend } from "./fetch-types";
 
-export const FetchContext = createContext<[FetchCurrent, FetchSend]>(undefined!);
+export const FetchSharedContext = createContext<[FetchCurrent, FetchSend]>(undefined!);
 
 interface FetchProviderProps {
   children: ReactNode;
@@ -12,8 +12,8 @@ interface FetchProviderProps {
 export const FetchProvider: React.FC<FetchProviderProps> = ({ children }) => {
     const [current, send] = useMachine(fetchMachine)
 
-  return (<FetchContext.Provider value={[current, send]}>
+  return (<FetchSharedContext.Provider value={[current, send]}>
     {children}
-  </FetchContext.Provider>)
+  </FetchSharedContext.Provider>)
 };
 

@@ -21,7 +21,7 @@ export type FetchMachineEvents =
     | { type: FetchActions.RESET }
     | { type: FetchActions.FILTER; terms: string }
     | { type: FetchActions.ADD;  data: PokeData }
-    | { type: FetchActions.REMOVE; order: number }
+    | { type: FetchActions.REMOVE; data: PokeData  }
     | { type: FetchActions.SET_SELECTED; data: PokeData }
 
 export interface FetchContext {

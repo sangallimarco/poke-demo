@@ -8,11 +8,11 @@ import { Card } from "../../components/card";
 import { TextInput } from "../../components/text-input";
 import { Routes } from "../../shared/routes";
 import { PokeData } from "../../shared/types";
-import { FetchContext } from "../../statechart/fetch-provider";
+import { FetchSharedContext } from "../../statechart/fetch-provider";
 import { FetchActions, FetchStates } from "../../statechart/fetch-types";
 
 export const ListView: React.FC = () => {
-  const [current, send] = useContext(FetchContext);
+  const [current, send] = useContext(FetchSharedContext);
   const history = useHistory();
 
   const {

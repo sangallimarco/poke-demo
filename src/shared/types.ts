@@ -7,6 +7,8 @@ export interface PokeData {
     sprites: Record<string, string>
     types: PokeTypeSlot[]
     stats: PokeStat[]
+    weight: number
+    moves: PokeMove[]
 }
 
 export interface PokeStat {
@@ -14,6 +16,10 @@ export interface PokeStat {
     effort: 0
     stat: PokeResource
 
+}
+
+export interface PokeMove {
+    move: PokeResource
 }
 
 export interface PokeTypeSlot {
