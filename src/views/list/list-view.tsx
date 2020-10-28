@@ -10,41 +10,38 @@ import { TextInput } from '../../components/text-input'
 import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
-import { FetchSharedContext } from '../../statecharts/fetch-provider'
-import { FetchActions, FetchStates } from '../../statecharts/fetch-types'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadMore, setFilter, setSelected } from '../../store/actions'
+import { RootState } from '../../store'
 
 export const ListView: React.FC = () => {
-  const [current, send] = useContext(FetchSharedContext)
+  const current = useSelector((state: RootState) => state.list)
+  const dispatch = useDispatch()
   const history = useHistory()
 
-  const {
-    context: { filteredList = [], list, filter },
-  } = current
+  const { filteredList = [], list, filter } = current
 
   const handleSelect = (data: PokeData) => {
-    send({ type: FetchActions.SET_SELECTED, data })
+    dispatch(setSelected(data))
     history.push(Routes.DETAILS)
   }
 
   const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.currentTarget.value)
+    doSetFilter(event.currentTarget.value)
   }
 
-  const setFilter = useCallback(
-    debounce(
-      (terms: string) => send({ type: FetchActions.FILTER, terms }),
-      150
-    ),
+  const doSetFilter = useCallback(
+    debounce((terms: string) => dispatch(setFilter(filter)), 150),
     []
   )
 
   const handleLoadMore = () => {
-    send({ type: FetchActions.LOAD_MORE })
+    dispatch(loadMore())
   }
 
   return (
     <>
-      <Spinner visibility={current.matches(FetchStates.FETCHING)} />
+      <Spinner visibility={false} />
       <Title>
         Pokèmons {filteredList.length} / {list.length}
       </Title>
@@ -69,7 +66,7 @@ export const ListView: React.FC = () => {
       <Button
         color="primary"
         onClick={handleLoadMore}
-        disabled={current.matches(FetchStates.FETCHING)}
+        disabled={false}
       >
         Load More Pokèmons
       </Button>

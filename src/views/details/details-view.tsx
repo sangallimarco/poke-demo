@@ -1,5 +1,6 @@
 import { isNil } from 'lodash'
-import React, { useContext } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import { Button } from '../../components/button'
 import { TypePills } from '../../components/pills'
 import { Spinner } from '../../components/spinner'
@@ -7,9 +8,9 @@ import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { PokeData } from '../../shared/types'
-import { isInFavourites } from '../../statecharts/fetch-data-utils'
-import { FetchSharedContext } from '../../statecharts/fetch-provider'
-import { FetchActions, FetchStates } from '../../statecharts/fetch-types'
+import { RootState } from '../../store'
+import { add, remove } from '../../store/actions'
+import { isInFavourites } from '../../store/utils'
 import { DetailsImg } from './details-img'
 import { DetailsLabelValue } from './details-label-value'
 import { DetailsCol, DetailsLayout } from './details-layout'
@@ -17,22 +18,22 @@ import { DetailsSectionTitle } from './details-section-title'
 import { DetailsStats } from './details-stats'
 
 export const DetailsView: React.FC = () => {
-  const [current, send] = useContext(FetchSharedContext)
-  const {
-    context: { selected, favourites },
-  } = current
 
+  const current = useSelector((state: RootState) => state.list);
+  const dispatch = useDispatch();
+
+  const {selected, favourites} = current
   // no selected pockemon
   if (isNil(selected)) {
     return <Title>Please select a Pokemon first</Title>
   }
 
   const handleAdd = () => {
-    send({ type: FetchActions.ADD, data: selected })
+    dispatch(add(selected))
   }
 
   const handleRemove = () => {
-    send({ type: FetchActions.REMOVE, data: selected })
+    dispatch(remove(selected))
   }
 
   const renderToggleButton = (favourites: PokeData[], id: number) =>
@@ -50,7 +51,7 @@ export const DetailsView: React.FC = () => {
 
   return (
     <>
-      <Spinner visibility={current.matches(FetchStates.FETCHING_DETAILS)} />
+      <Spinner visibility={false} />
       <TitleContainer>
         <Title>
           {name} #{formattedId}{' '}
