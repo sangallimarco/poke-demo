@@ -10,6 +10,8 @@ import { Routes } from "../../shared/routes";
 import { PokeData } from "../../shared/types";
 import { FetchSharedContext } from "../../statechart/fetch-provider";
 import { FetchActions, FetchStates } from "../../statechart/fetch-types";
+import { Canvas } from "../../components/canvas";
+import { Title } from "../../components/title";
 
 export const ListView: React.FC = () => {
   const [current, send] = useContext(FetchSharedContext);
@@ -43,6 +45,7 @@ export const ListView: React.FC = () => {
 
   return (
     <>
+      <Title>Pokemons</Title>
       <FilterContainer>
         <TextInput
           defaultValue={filter}
@@ -61,6 +64,7 @@ export const ListView: React.FC = () => {
         ))}
       </Grid>
       <Button
+        color="primary"
         onClick={handleLoadMore}
         disabled={current.matches(FetchStates.FETCHING)}
       >

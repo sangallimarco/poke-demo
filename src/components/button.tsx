@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { ThemeColors } from "../shared/colors";
 
-export const Button = styled.button`
+interface ButtonProps {
+    color?: 'primary' | 'default'
+}
+
+export const Button = styled.button<ButtonProps>`
     width: 10em;
-    background-color: ${ThemeColors.BUTTON};
+    background-color: ${({color}) => color === 'primary' ? ThemeColors.PRIMARY_BUTTON : ThemeColors.BUTTON};
     padding: 0.5em;
     border: none;
     border-radius: 0.2em;
