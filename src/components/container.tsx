@@ -9,5 +9,5 @@ export const Container = styled.div`
   gap: 1em;
   grid-auto-rows: min-content;
   justify-items: center;
-  background-color: ${ThemeColors.CONTAINER}
+  background-color: ${ThemeColors.CONTAINER};
 `;

@@ -33,7 +33,6 @@ const NavElem = styled(NavLink)`
 `;
 
 export const Navbar: React.FC = (): JSX.Element => {
-
   return (
     <NavContainer>
       <NavElem to={Routes.HOME} exact>

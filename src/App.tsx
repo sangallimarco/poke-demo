@@ -12,16 +12,16 @@ export const App: React.FC = () => {
   return (
     <FetchProvider>
       <Canvas>
-      <BrowserRouter>
-      <Container>
-        <Navbar/>
-        <Switch>
-          <Route path="/" component={ListView} exact />
-          <Route path="/favourites" component={FavouritesView} exact/>
-          <Route path="/details" component={DetailsView} />
-        </Switch>
-      </Container>
-    </BrowserRouter>
+        <BrowserRouter>
+          <Container>
+            <Navbar />
+            <Switch>
+              <Route path="/" component={ListView} exact />
+              <Route path="/favourites" component={FavouritesView} exact />
+              <Route path="/details" component={DetailsView} />
+            </Switch>
+          </Container>
+        </BrowserRouter>
       </Canvas>
     </FetchProvider>
   );

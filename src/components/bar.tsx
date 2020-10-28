@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { ThemeColors } from "../shared/colors";
 
 interface BarProps {
-  value: number
-  maxValue: number
+  value: number;
+  maxValue: number;
 }
 
 export const BarContainer = styled.div`

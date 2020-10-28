@@ -50,7 +50,10 @@ export const DetailsView: React.FC = () => {
   return (
     <>
       <TitleContainer>
-        <Title>{name} #{formattedId} </Title>{renderToggleButton(favourites, id)}
+        <Title>
+          {name} #{formattedId}{" "}
+        </Title>
+        {renderToggleButton(favourites, id)}
       </TitleContainer>
       <DetailsLayout>
         <DetailsCol>
@@ -61,9 +64,10 @@ export const DetailsView: React.FC = () => {
         <DetailsCol>
           <DetailsSectionTitle>Description</DetailsSectionTitle>
           <DetailsLabelValue>
-            <SubTitle>Gender</SubTitle>{gender?.name}
+            <SubTitle>Gender</SubTitle>
+            {gender?.name}
           </DetailsLabelValue>
-          
+
           <DetailsSectionTitle>Type</DetailsSectionTitle>
           <TypePills types={types} />
         </DetailsCol>

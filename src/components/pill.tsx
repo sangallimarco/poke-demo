@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { ThemeColors, typesColorMap } from "../shared/colors";
 import { PokeTypeSlot } from "../shared/types";
 
-
 export const PillsContainer = styled.div`
   display: flex;
   flex-direction: row;

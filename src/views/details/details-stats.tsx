@@ -23,7 +23,6 @@ interface DetailsStatsProps {
 }
 
 export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
-
   return (
     <DetailsStatsCard>
       {stats.map((stat) => {
@@ -32,13 +31,11 @@ export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
           stat: { name },
         } = stat;
 
-        const formattedLabel = formatLabel(name)
+        const formattedLabel = formatLabel(name);
 
         return (
           <>
-            <SubTitle>
-              {formattedLabel}
-            </SubTitle>
+            <SubTitle>{formattedLabel}</SubTitle>
             <Bar value={base_stat} maxValue={250} />
           </>
         );
