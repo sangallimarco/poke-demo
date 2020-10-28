@@ -1,8 +1,8 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { ReactNode } from "react";
-import styled from "styled-components";
-import { ThemeColors } from "../shared/colors";
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { ReactNode } from 'react'
+import styled from 'styled-components'
+import { ThemeColors } from '../shared/colors'
 
 export const FilterWrapper = styled.div`
   display: grid;
@@ -19,9 +19,9 @@ export const FilterWrapper = styled.div`
   &:hover {
     opacity: 1;
   }
-`;
+`
 interface FilterContaineProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const FilterContainer: React.FC<FilterContaineProps> = ({
@@ -32,5 +32,5 @@ export const FilterContainer: React.FC<FilterContaineProps> = ({
       <div>{children}</div>
       <FontAwesomeIcon icon={faSearch} />
     </FilterWrapper>
-  );
-};
+  )
+}

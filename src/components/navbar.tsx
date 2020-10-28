@@ -1,16 +1,16 @@
-import { faBook, faList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { ThemeColors } from "../shared/colors";
-import { Routes } from "../shared/routes";
+import { faBook, faList } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+import { ThemeColors } from '../shared/colors'
+import { Routes } from '../shared/routes'
 
 const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1em;
-`;
+`
 
 const NavElem = styled(NavLink)`
   background-color: ${ThemeColors.NAV};
@@ -30,7 +30,7 @@ const NavElem = styled(NavLink)`
     color: ${ThemeColors.INVERTED_TEXT};
     background-color: ${ThemeColors.ACTIVE_NAV};
   }
-`;
+`
 
 export const Navbar: React.FC = (): JSX.Element => {
   return (
@@ -42,5 +42,5 @@ export const Navbar: React.FC = (): JSX.Element => {
         <FontAwesomeIcon icon={faBook} /> Favourites
       </NavElem>
     </NavContainer>
-  );
-};
+  )
+}

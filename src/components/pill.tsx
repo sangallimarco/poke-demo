@@ -1,22 +1,22 @@
-import { isNil } from "lodash";
-import React from "react";
-import styled from "styled-components";
-import { ThemeColors, typesColorMap } from "../shared/colors";
-import { PokeTypeSlot } from "../shared/types";
+import { isNil } from 'lodash'
+import React from 'react'
+import styled from 'styled-components'
+import { ThemeColors, typesColorMap } from '../shared/colors'
+import { PokeTypeSlot } from '../shared/types'
 
 export const PillsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.5em;
-`;
+`
 
 function getPillColor(name: string): string {
-  const color = typesColorMap[name];
-  return !isNil(color) ? color : typesColorMap.normal;
+  const color = typesColorMap[name]
+  return !isNil(color) ? color : typesColorMap.normal
 }
 
 interface PillProps {
-  name: string;
+  name: string
 }
 
 export const Pill = styled.div<PillProps>`
@@ -27,10 +27,10 @@ export const Pill = styled.div<PillProps>`
   font-size: 0.9em;
   color: ${ThemeColors.INVERTED_TEXT};
   font-weight: 600;
-`;
+`
 
 interface TypePillsProps {
-  types: PokeTypeSlot[];
+  types: PokeTypeSlot[]
 }
 
 export const TypePills: React.FC<TypePillsProps> = ({ types }) => {
@@ -42,5 +42,5 @@ export const TypePills: React.FC<TypePillsProps> = ({ types }) => {
         </Pill>
       ))}
     </PillsContainer>
-  );
-};
+  )
+}

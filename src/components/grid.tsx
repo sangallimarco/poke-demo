@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../shared/types";
+import styled from 'styled-components'
+import { device } from '../shared/types'
 
 export const Grid = styled.div`
   display: grid;
@@ -22,4 +22,4 @@ export const Grid = styled.div`
   @media ${device.desktop} {
     grid-template-columns: repeat(8, 1fr);
   }
-`;
+`

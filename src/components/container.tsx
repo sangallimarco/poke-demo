@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ThemeColors } from "../shared/colors";
+import styled from 'styled-components'
+import { ThemeColors } from '../shared/colors'
 
 export const Container = styled.div`
   grid-template-columns: 1fr;
@@ -10,4 +10,4 @@ export const Container = styled.div`
   grid-auto-rows: min-content;
   justify-items: center;
   background-color: ${ThemeColors.CONTAINER};
-`;
+`

@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { Bar } from "../../components/bar";
-import { SubTitle } from "../../components/sub-title";
-import { ThemeColors } from "../../shared/colors";
-import { formatLabel } from "../../shared/helpers";
-import { PokeStat } from "../../shared/types";
+import React from 'react'
+import styled from 'styled-components'
+import { Bar } from '../../components/bar'
+import { SubTitle } from '../../components/sub-title'
+import { ThemeColors } from '../../shared/colors'
+import { formatLabel } from '../../shared/helpers'
+import { PokeStat } from '../../shared/types'
 
 export const DetailsStatsCard = styled.div`
   border-radius: 0.5em;
@@ -16,10 +16,10 @@ export const DetailsStatsCard = styled.div`
   white-space: nowrap;
   align-items: center;
   gap: 1em;
-`;
+`
 
 interface DetailsStatsProps {
-  stats: PokeStat[];
+  stats: PokeStat[]
 }
 
 export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
@@ -29,17 +29,17 @@ export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
         const {
           base_stat,
           stat: { name },
-        } = stat;
+        } = stat
 
-        const formattedLabel = formatLabel(name);
+        const formattedLabel = formatLabel(name)
 
         return (
           <>
             <SubTitle>{formattedLabel}</SubTitle>
             <Bar value={base_stat} maxValue={250} />
           </>
-        );
+        )
       })}
     </DetailsStatsCard>
-  );
-};
+  )
+}

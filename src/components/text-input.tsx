@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const TextInput = styled.input`
   width: 100%;
@@ -8,4 +8,4 @@ export const TextInput = styled.input`
   border: 0;
   font-size: 1em;
   outline: none;
-`;
+`

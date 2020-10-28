@@ -1,34 +1,34 @@
-import { debounce } from "lodash";
-import React, { ChangeEvent, useCallback, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { Button } from "../../components/button";
-import { Card } from "../../components/card";
-import { FilterContainer } from "../../components/filter";
-import { Grid } from "../../components/grid";
-import { TextInput } from "../../components/text-input";
-import { Title } from "../../components/title";
-import { Routes } from "../../shared/routes";
-import { PokeData } from "../../shared/types";
-import { FetchSharedContext } from "../../statecharts/fetch-provider";
-import { FetchActions, FetchStates } from "../../statecharts/fetch-types";
+import { debounce } from 'lodash'
+import React, { ChangeEvent, useCallback, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { Button } from '../../components/button'
+import { Card } from '../../components/card'
+import { FilterContainer } from '../../components/filter'
+import { Grid } from '../../components/grid'
+import { TextInput } from '../../components/text-input'
+import { Title } from '../../components/title'
+import { Routes } from '../../shared/routes'
+import { PokeData } from '../../shared/types'
+import { FetchSharedContext } from '../../statecharts/fetch-provider'
+import { FetchActions, FetchStates } from '../../statecharts/fetch-types'
 
 export const ListView: React.FC = () => {
-  const [current, send] = useContext(FetchSharedContext);
-  const history = useHistory();
+  const [current, send] = useContext(FetchSharedContext)
+  const history = useHistory()
 
   const {
     context: { list = [], limit, filter },
-  } = current;
+  } = current
 
   const handleSelect = (data: PokeData) => {
     // const {order} = data
-    send({ type: FetchActions.SET_SELECTED, data });
-    history.push(Routes.DETAILS);
-  };
+    send({ type: FetchActions.SET_SELECTED, data })
+    history.push(Routes.DETAILS)
+  }
 
   const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.currentTarget.value);
-  };
+    setFilter(event.currentTarget.value)
+  }
 
   const setFilter = useCallback(
     debounce(
@@ -36,11 +36,11 @@ export const ListView: React.FC = () => {
       500
     ),
     []
-  );
+  )
 
   const handleLoadMore = () => {
-    send({ type: FetchActions.LOAD_MORE });
-  };
+    send({ type: FetchActions.LOAD_MORE })
+  }
 
   return (
     <>
@@ -70,5 +70,5 @@ export const ListView: React.FC = () => {
         Load Next {limit}
       </Button>
     </>
-  );
-};
+  )
+}

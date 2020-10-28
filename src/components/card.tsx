@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { ThemeColors } from "../shared/colors";
-import { generateImageUrl, generatePokemonNumber } from "../shared/helpers";
-import { PokeData } from "../shared/types";
-import { TypePills } from "./pill";
+import React from 'react'
+import styled from 'styled-components'
+import { ThemeColors } from '../shared/colors'
+import { generateImageUrl, generatePokemonNumber } from '../shared/helpers'
+import { PokeData } from '../shared/types'
+import { TypePills } from './pill'
 
 const CardContainer = styled.div`
   min-width: 10em;
@@ -20,38 +20,38 @@ const CardContainer = styled.div`
   &:hover {
     transform: scale(1.05);
   }
-`;
+`
 
 const CardImg = styled.img`
   width: 100%;
   border-radius: 0.5em;
   background-color: ${ThemeColors.IMG};
-`;
+`
 
 const CardTitle = styled.div`
   font-size: 1.7em;
   text-transform: capitalize;
-`;
+`
 
 const CardNumber = styled.div`
   font-size: 0.9em;
   color: ${ThemeColors.SECONDARY_TEXT};
-`;
+`
 
 interface PokemonCardProps {
-  data: PokeData;
-  onSelect: (data: PokeData) => void;
+  data: PokeData
+  onSelect: (data: PokeData) => void
 }
 
 export const Card: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
-  const { name, types, id } = data;
+  const { name, types, id } = data
 
-  const hiResImage = generateImageUrl(id);
-  const position = generatePokemonNumber(id);
+  const hiResImage = generateImageUrl(id)
+  const position = generatePokemonNumber(id)
 
   const handleClick = () => {
-    onSelect(data);
-  };
+    onSelect(data)
+  }
 
   return (
     <CardContainer onClick={handleClick}>
@@ -60,5 +60,5 @@ export const Card: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
       <CardTitle>{name}</CardTitle>
       <TypePills types={types} />
     </CardContainer>
-  );
-};
+  )
+}

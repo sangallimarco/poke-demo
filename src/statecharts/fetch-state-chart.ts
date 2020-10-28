@@ -1,4 +1,4 @@
-import { assign, DoneInvokeEvent, Machine, MachineConfig } from "xstate";
+import { assign, DoneInvokeEvent, Machine, MachineConfig } from 'xstate'
 import {
   addItem,
   fetchDetailsProcess,
@@ -9,7 +9,7 @@ import {
   setFilter,
   setNextPage,
   setSelectedItem,
-} from "./fetch-data-utils";
+} from './fetch-data-utils'
 import {
   FetchActions,
   FetchContext,
@@ -18,7 +18,7 @@ import {
   FetchService,
   FetchStates,
   FetchStateSchema,
-} from "./fetch-types";
+} from './fetch-types'
 
 export function getFetchStateChart(): MachineConfig<
   FetchContext,
@@ -72,8 +72,8 @@ export function getFetchStateChart(): MachineConfig<
           src: FetchService.FETCHING_DETAILS_SERVICE,
           onDone: {
             actions: assign((ctx, event: DoneInvokeEvent<any>) => {
-              console.log(event.data);
-              return event.data;
+              console.log(event.data)
+              return event.data
             }),
             target: FetchStates.ACTIVE,
           },
@@ -83,7 +83,7 @@ export function getFetchStateChart(): MachineConfig<
         },
       },
     },
-  };
+  }
 }
 
 export const fetchMachine = Machine<FetchContext, FetchMachineEvents>(
@@ -98,4 +98,4 @@ export const fetchMachine = Machine<FetchContext, FetchMachineEvents>(
   {
     ...FetchInitialContext,
   }
-);
+)
