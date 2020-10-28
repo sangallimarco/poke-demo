@@ -4,21 +4,24 @@ import "./App.css";
 import { Canvas } from "./components/canvas";
 import { Container } from "./components/container";
 import { Navbar } from "./components/navbar";
+import { FetchProvider } from "./statechart/fetch-provider";
 import { PokemonDetails } from "./views/pokemon-details";
 import { PokemonList } from "./views/pokemon-list";
 
 export const App: React.FC = () => {
   return (
-    <Canvas>
+    <FetchProvider>
+      <Canvas>
       <BrowserRouter>
-        <Container>
-          <Navbar title="Pokemons" />
-          <Switch>
-            <Route path="/" component={PokemonList} exact />
-            <Route path="/details/:id" component={PokemonDetails} exact />
-          </Switch>
-        </Container>
-      </BrowserRouter>
-    </Canvas>
+      <Container>
+        <Navbar title="Pokemons" />
+        <Switch>
+          <Route path="/" component={PokemonList} exact />
+          <Route path="/details/:id" component={PokemonDetails} exact />
+        </Switch>
+      </Container>
+    </BrowserRouter>
+      </Canvas>
+    </FetchProvider>
   );
 };

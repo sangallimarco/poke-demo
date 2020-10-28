@@ -1,3 +1,4 @@
+import { State } from "xstate"
 import { PokeData } from "../shared/types"
 
 export enum FetchStates {
@@ -57,3 +58,6 @@ export interface FetchStateSchema {
         [FetchStates.FETCHING]: {}
     }
 }
+
+export type FetchCurrent = State<FetchContext, FetchMachineEvents, FetchStateSchema>
+export type FetchSend = (event: FetchMachineEvents) => void

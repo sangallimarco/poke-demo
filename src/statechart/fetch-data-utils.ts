@@ -43,7 +43,7 @@ export function setFilter(ctx: FetchContext, filter: string): Partial<FetchConte
 async function fetchPokeData(url: string): Promise<PokeData | null> {
     try {
         const response = await fetch(url)
-        return response.json()
+        return await response.json()
     } catch (e) {
         return null
     }

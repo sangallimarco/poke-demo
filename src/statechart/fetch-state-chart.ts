@@ -52,7 +52,7 @@ export const fetchMachine = Machine<FetchContext, FetchMachineEvents>(
     getFetchStateChart(),
     {
         services: {
-            [FetchService.FETCHING_SERVICE]: (ctx) => fetchProcess(ctx),
+            [FetchService.FETCHING_SERVICE]: (ctx) => fetchProcess(ctx)
         },
     },
     {
