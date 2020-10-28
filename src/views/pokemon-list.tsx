@@ -32,7 +32,7 @@ export const PokemonList: React.FC = () => {
   const setFilter = useCallback(
     debounce(
       (terms: string) => send({ type: FetchActions.FILTER, terms }),
-      1000
+      500
     ),
     []
   );

@@ -1,8 +1,7 @@
 import { isNil } from "lodash";
 import { FetchContext } from "./fetch-types";
 import { PokeData, PokeList } from "../shared/types";
-
-const ROOT_API = 'https://pokeapi.co/api/v2/pokemon'
+import { ROOT_API } from "../shared/config";
 
 export async function fetchProcess(ctx: FetchContext): Promise<Partial<FetchContext>> {
     const { limit, offset, filter } = ctx;

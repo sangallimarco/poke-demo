@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ThemeColors } from "../shared/colors";
+import { ROOT_ASSETS } from "../shared/config";
+import { generateImageUrl, generatePokemonNumber } from "../shared/helpers";
 import { PokeData } from "../shared/types";
 import { TypePills } from "./pill";
 
@@ -40,12 +42,14 @@ interface PokemonCardProps {
 export const PokemonCard: React.FC<PokemonCardProps> = ({data, onSelect}) => {
     const {sprites, name,types, order} =  data;
 
+    const hiResImage = generateImageUrl(order)
+
     const handleClick = () => {
         onSelect(data)
     }
 
     return (<CardContainer onClick={handleClick}>
-        <CardImg src={sprites.front_default}/>
+        <CardImg src={hiResImage}/>
         <CardTitle>{name}</CardTitle>
         <TypePills types={types}/>
     </CardContainer>)
