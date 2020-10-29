@@ -74,7 +74,7 @@ export const DetailsView: React.FC = () => {
           <TypePills types={types} />
 
           <DetailsSectionTitle>Moves</DetailsSectionTitle>
-          <MovePills moves={moves}/>
+          <MovePills moves={moves} />
         </DetailsCol>
       </DetailsLayout>
     </>

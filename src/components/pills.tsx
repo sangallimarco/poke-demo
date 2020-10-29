@@ -28,7 +28,8 @@ export const Pill = styled.div<PillProps>`
   border: none;
   border-radius: 0.2em;
   font-size: 0.9em;
-  color: ${({inverted}) => inverted ? ThemeColors.INVERTED_TEXT : ThemeColors.TEXT};
+  color: ${({ inverted }) =>
+    inverted ? ThemeColors.INVERTED_TEXT : ThemeColors.TEXT};
   font-weight: 600;
   white-space: nowrap;
 `
@@ -40,11 +41,13 @@ interface TypePillsProps {
 export const TypePills: React.FC<TypePillsProps> = ({ types }) => {
   return (
     <PillsContainer>
-      {types.map(({ slot, type: {name} }) => {
+      {types.map(({ slot, type: { name } }) => {
         const color = getTypePillColor(name)
-        return ( <Pill key={slot} color={color} inverted={true}>
-          {name}
-        </Pill>)
+        return (
+          <Pill key={slot} color={color} inverted={true}>
+            {name}
+          </Pill>
+        )
       })}
     </PillsContainer>
   )
@@ -57,11 +60,13 @@ interface MovePillsProps {
 export const MovePills: React.FC<MovePillsProps> = ({ moves }) => {
   return (
     <PillsContainer>
-      {moves.map(({ move: {name} }) => {
+      {moves.map(({ move: { name } }) => {
         const formattedLabel = formatLabel(name)
-        return ( <Pill key={name} color={ThemeColors.BUTTON} inverted={false}>
-          {formattedLabel}
-        </Pill>)
+        return (
+          <Pill key={name} color={ThemeColors.PILL} inverted={false}>
+            {formattedLabel}
+          </Pill>
+        )
       })}
     </PillsContainer>
   )
