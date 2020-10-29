@@ -10,13 +10,13 @@ export const Canvas = styled.div`
     padding: 1em 3em;
   }
 
-   @media ${device.laptop} {
+  @media ${device.laptop} {
     padding: 1em 8%;
   }
 
   @media ${device.laptopL} {
     padding: 1em 15%;
-  } 
+  }
 
   @media ${device.desktop} {
     padding: 1em 15%;
