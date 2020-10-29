@@ -27,6 +27,7 @@ export interface PokeStat {
 
 export interface PokeMove {
   move: PokeResource
+  version_group_details?: {} // assign a type here if needed
 }
 
 export interface PokeAbility {
