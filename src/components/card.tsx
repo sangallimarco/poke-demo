@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ThemeColors } from '../shared/colors'
 import { generateImageUrl, generatePokemonNumber } from '../shared/helpers'
 import { PokeData } from '../shared/types'
+import { Img } from './image'
 import { TypePills } from './pills'
 
 const CardContainer = styled.div`
@@ -20,12 +21,6 @@ const CardContainer = styled.div`
   &:hover {
     transform: scale(1.05);
   }
-`
-
-const CardImg = styled.img`
-  width: 100%;
-  border-radius: 0.5em;
-  background-color: ${ThemeColors.IMG};
 `
 
 const CardTitle = styled.div`
@@ -55,7 +50,7 @@ export const Card: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
 
   return (
     <CardContainer onClick={handleClick}>
-      <CardImg src={hiResImage} />
+      <Img src={hiResImage} />
       <CardNumber>#{position}</CardNumber>
       <CardTitle>{name}</CardTitle>
       <TypePills types={types} />
