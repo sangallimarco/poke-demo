@@ -47,7 +47,7 @@ export const ListView: React.FC = () => {
 
   return (
     <>
-      {isEmpty(list) ? <Spinner/> : null}
+      {isEmpty(list) ? <Spinner /> : null}
       <Title>
         Pokèmons {filteredList.length} / {list.length}
       </Title>

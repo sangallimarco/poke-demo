@@ -35,6 +35,11 @@ describe('ListReducer', () => {
         type: SET_LIST,
         payload: testList,
       })
-    ).toEqual({ filter: '', limit: PAGINATION_LIMIT, list: testList, offset: 0 })
+    ).toEqual({
+      filter: '',
+      limit: PAGINATION_LIMIT,
+      list: testList,
+      offset: 0,
+    })
   })
 })
