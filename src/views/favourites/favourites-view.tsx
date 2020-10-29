@@ -11,7 +11,9 @@ import { PokeData } from '../../shared/types'
 import { RootState } from '../../store/configure'
 
 export const FavouritesView: React.FC = () => {
-  const favourites = useSelector((state: RootState) => state.favourites.favourites)
+  const favourites = useSelector(
+    (state: RootState) => state.favourites.favourites
+  )
   const history = useHistory()
 
   const handleSelect = (data: PokeData) => {
@@ -19,9 +21,10 @@ export const FavouritesView: React.FC = () => {
     history.push(`${Routes.DETAILS}/${id}`)
   }
 
-  const warningMessage =
-  isEmpty(favourites)  ? (
-    <SubTitle>Set is empty, please add a new Pokèmon from the detail view</SubTitle>
+  const warningMessage = isEmpty(favourites) ? (
+    <SubTitle>
+      Set is empty, please add a new Pokèmon from the detail view
+    </SubTitle>
   ) : null
 
   return (
