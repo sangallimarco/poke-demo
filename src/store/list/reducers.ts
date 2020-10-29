@@ -10,7 +10,6 @@ import { filterData, mergeData, setSelectedItem } from './functions'
 
 const initialState: ListState = {
   list: [],
-  filteredList: [],
   offset: 0,
   limit: PAGINATION_LIMIT,
   filter: '',
@@ -24,11 +23,8 @@ export function ListReducer(
   switch (action.type) {
     case FILTER:
       const filter = action.payload
-      const filteredList = filterData(state.list, action.payload)
-      debugger
       return {
         ...state,
-        filteredList,
         filter,
       }
     case SET_SELECTED:

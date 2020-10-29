@@ -31,7 +31,6 @@ export type PokeActionTypes =
 
 export interface ListState {
   list: PokeData[]
-  filteredList: PokeData[]
   offset: number
   limit: number
   filter: string

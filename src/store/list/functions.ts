@@ -100,17 +100,16 @@ export function mergeData(
   const list = [...originalList, ...newList]
   const filteredList: PokeData[] = filterData(list, filter)
 
-  return { list, filteredList }
+  return { list }
 }
 
 export function reset(ctx: ListState): Partial<ListState> {
-  return { list: [], filteredList: [], offset: 0 }
+  return { list: [], offset: 0 }
 }
 
 export function setFilter(ctx: ListState, filter: string): Partial<ListState> {
   const { list } = ctx
-  const filteredList = filterData(list, filter)
-  return { filteredList, filter, offset: 0 }
+  return { filter, offset: 0 }
 }
 
 export function setNextPage(ctx: ListState): Partial<ListState> {

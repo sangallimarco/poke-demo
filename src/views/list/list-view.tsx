@@ -12,13 +12,14 @@ import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
 import { RootState } from '../../store/configure'
 import { setFilter } from '../../store/list/actions'
+import { filterData } from '../../store/list/functions'
 
 export const ListView: React.FC = () => {
-  const current = useSelector((state: RootState) => state.list)
+  const filteredList = useSelector((state: RootState) => filterData(state.list.list, state.list.filter))
+  const filter = useSelector((state: RootState) => state.list.filter)
+  const list = useSelector((state: RootState) => state.list.list)
   const dispatch = useDispatch()
   const history = useHistory()
-
-  const { filteredList = [], list, filter } = current
 
   const handleSelect = (data: PokeData) => {
     const { id } = data
