@@ -54,7 +54,7 @@ export function mergeData(
   ctx: ListState,
   newList: PokeData[]
 ): Partial<ListState> {
-  const { list: originalList = []} = ctx
+  const { list: originalList = [] } = ctx
   const list = [...originalList, ...newList]
   return { list }
 }
