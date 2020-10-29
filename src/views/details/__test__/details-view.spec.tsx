@@ -23,7 +23,7 @@ describe('DetailsView', () => {
     })
   })
 
-  test('should render ', () => {
+  test('should render', () => {
     const wrapper = mount(
       <Provider store={store}>
         <MemoryRouter initialEntries={['/details/181']} initialIndex={0}>

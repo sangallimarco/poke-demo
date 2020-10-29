@@ -23,7 +23,7 @@ describe('ListView', () => {
     })
   })
 
-  test('should render ', () => {
+  test('should render', () => {
     const wrapper = mount(
       <Provider store={store}>
         <ListView />
