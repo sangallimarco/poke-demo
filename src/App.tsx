@@ -28,12 +28,12 @@ export const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <PersistGate
-        loading={<Spinner />}
-        persistor={persistor}
-        onBeforeLift={loadData}
-      >
-        <Canvas>
+      <Canvas>
+        <PersistGate
+          loading={<Spinner />}
+          persistor={persistor}
+          onBeforeLift={loadData}
+        >
           <BrowserRouter>
             <Container>
               <Navbar />
@@ -44,8 +44,8 @@ export const App: React.FC = () => {
               </Switch>
             </Container>
           </BrowserRouter>
-        </Canvas>
-      </PersistGate>
+        </PersistGate>
+      </Canvas>
     </Provider>
   )
 }

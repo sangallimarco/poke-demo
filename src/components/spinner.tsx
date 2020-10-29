@@ -6,9 +6,7 @@ import { ThemeColors } from '../shared/colors'
 
 export const SpinnerOverlay = styled.div`
   position: fixed;
-  background-color: ${ThemeColors.CARD};
   pointer-events: all;
-  opacity: 0.8;
   width: 100%;
   height: 100%;
   top: 0;

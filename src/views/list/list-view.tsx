@@ -34,7 +34,7 @@ export const ListView: React.FC = () => {
   }
 
   const doSetFilter = useCallback(
-    debounce((terms: string) => dispatch(setFilter(terms)), 150),
+    debounce((terms: string) => dispatch(setFilter(terms)), 250),
     []
   )
 
