@@ -2,11 +2,12 @@ import { PokeData } from '../../../shared/types'
 import { ampharosPokeData, jumpluffPokeData } from '../../../shared/__data__'
 import {
   filterData,
-  getItemById, isInFavourites,
+  getItemById,
+  isInFavourites,
   mergeData,
   reset,
   setFilter,
-  setNextPage
+  setNextPage,
 } from '../functions'
 import { ListState } from '../types'
 
