@@ -2,7 +2,6 @@ import { faCompactDisc } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styled from 'styled-components'
-import { ThemeColors } from '../shared/colors'
 
 export const SpinnerOverlay = styled.div`
   position: fixed;
