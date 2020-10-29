@@ -1,6 +1,6 @@
 import { ListReducer } from '../reducers'
 import { FILTER, SET_LIST } from '../types'
-import ampharos from '../../__tests__/ampharos.json'
+import ampharos from '../../../shared/__mocks__//ampharos.json'
 import { PokeData } from '../../../shared/types'
 import { PAGINATION_LIMIT } from '../../../shared/config'
 

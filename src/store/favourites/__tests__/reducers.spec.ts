@@ -1,4 +1,4 @@
-import ampharos from '../../__tests__/ampharos.json'
+import ampharos from '../../../shared/__mocks__/ampharos.json'
 import { PokeData } from '../../../shared/types'
 import { FavouritesReducer } from '../reducers'
 import { ADD, REMOVE } from '../types'
