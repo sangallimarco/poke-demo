@@ -1,7 +1,7 @@
 import { PokeData } from '../../../shared/types'
 import { addItem, removeItem } from '../functions'
 import { FavouriteState } from '../types'
-import ampharos from './../__tests__/ampharos.json'
+import ampharos from '../../__tests__/ampharos.json'
 import jumpluff from '../../__tests__/jumpluff.json'
 
 function returnPokeData(data: any): PokeData {

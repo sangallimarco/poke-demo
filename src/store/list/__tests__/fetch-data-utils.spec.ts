@@ -9,7 +9,7 @@ import {
   getItemById,
 } from '../functions'
 import { ListState } from '../types'
-import ampharos from './../__tests__/ampharos.json'
+import ampharos from '../../__tests__/ampharos.json'
 import jumpluff from '../../__tests__/jumpluff.json'
 
 function returnPokeData(data: any): PokeData {
@@ -29,7 +29,6 @@ describe('helpers', () => {
     list: [ampharosPokeData],
     limit: 100,
     offset: 0,
-    selected: null,
     filter: '',
   }
 
@@ -81,9 +80,9 @@ describe('helpers', () => {
     })
   })
 
-  describe('setSelectedItem()', () => {
+  describe('getItemById()', () => {
     test('should set data to select', () => {
-      const selected = getItemById(testContext, ampharosPokeData.id)
+      const selected = getItemById([ampharosPokeData], ampharosPokeData.id)
       expect(selected).toBeDefined()
     })
   })
