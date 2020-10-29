@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Button } from '../../components/button'
 import { Img } from '../../components/image'
-import { TypePills } from '../../components/pills'
-import { SubTitle } from '../../components/sub-title'
+import { MovePills, TypePills } from '../../components/pills'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { RootState } from '../../store/configure'
 import { add, remove } from '../../store/favourites/actions'
 import { getItemById, isInFavourites } from '../../store/list/functions'
-import { DetailsLabelValue } from './details-label-value'
 import { DetailsCol, DetailsLayout } from './details-layout'
 import { DetailsSectionTitle } from './details-section-title'
 import { DetailsStats } from './details-stats'
@@ -53,7 +51,7 @@ export const DetailsView: React.FC = () => {
       <Button onClick={handleRemove}>Remove from Favourites</Button>
     )
 
-  const { stats = [], types, name, gender } = selected
+  const { stats = [], types, name, moves } = selected
   const hiResImage = generateImageUrl(idNumber, true)
   const formattedId = generatePokemonNumber(idNumber)
 
@@ -72,14 +70,11 @@ export const DetailsView: React.FC = () => {
           <DetailsStats stats={stats} />
         </DetailsCol>
         <DetailsCol>
-          <DetailsSectionTitle>Description</DetailsSectionTitle>
-          <DetailsLabelValue>
-            <SubTitle>Gender</SubTitle>
-            {gender?.name}
-          </DetailsLabelValue>
-
           <DetailsSectionTitle>Type</DetailsSectionTitle>
           <TypePills types={types} />
+
+          <DetailsSectionTitle>Moves</DetailsSectionTitle>
+          <MovePills moves={moves} />
         </DetailsCol>
       </DetailsLayout>
     </>

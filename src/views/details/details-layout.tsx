@@ -7,7 +7,7 @@ export const DetailsLayout = styled.div`
   gap: 2em;
 
   @media ${device.tablet} {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 30em auto;
   }
 `
 
