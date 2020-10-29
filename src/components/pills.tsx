@@ -41,10 +41,10 @@ interface TypePillsProps {
 export const TypePills: React.FC<TypePillsProps> = ({ types }) => {
   return (
     <PillsContainer>
-      {types.map(({ slot, type: { name } }) => {
+      {types.map(({ type: { name } }) => {
         const color = getTypePillColor(name)
         return (
-          <Pill key={slot} color={color} inverted={true}>
+          <Pill key={name} color={color} inverted={true}>
             {name}
           </Pill>
         )

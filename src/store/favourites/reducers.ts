@@ -1,12 +1,12 @@
 import { addItem, removeItem } from './functions'
 import { ADD, FavouriteActionTypes, FavouriteState, REMOVE } from './types'
 
-const initialState: FavouriteState = {
+export const FavouritesInitialState: FavouriteState = {
   favourites: [],
 }
 
 export function FavouritesReducer(
-  state = initialState,
+  state = FavouritesInitialState,
   action: FavouriteActionTypes
 ): FavouriteState {
   switch (action.type) {

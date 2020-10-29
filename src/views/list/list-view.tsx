@@ -65,7 +65,7 @@ export const ListView: React.FC = () => {
           <Card
             data={pokemonData}
             onSelect={handleSelect}
-            key={pokemonData.order}
+            key={pokemonData.id}
           />
         ))}
       </Grid>

@@ -2,7 +2,7 @@ import { PAGINATION_LIMIT } from '../../shared/config'
 import { mergeData } from './functions'
 import { FILTER, ListState, PokeActionTypes, SET_LIST } from './types'
 
-const initialState: ListState = {
+export const ListInitialState: ListState = {
   list: [],
   offset: 0,
   limit: PAGINATION_LIMIT,
@@ -10,7 +10,7 @@ const initialState: ListState = {
 }
 
 export function ListReducer(
-  state = initialState,
+  state = ListInitialState,
   action: PokeActionTypes
 ): ListState {
   switch (action.type) {
