@@ -1,15 +1,10 @@
+import { PAGINATION_LIMIT } from '../../../shared/config'
+import { ampharosPokeData } from '../../../shared/__data__'
 import { ListReducer } from '../reducers'
 import { FILTER, SET_LIST } from '../types'
-import ampharos from '../../../shared/__mocks__//ampharos.json'
-import { PokeData } from '../../../shared/types'
-import { PAGINATION_LIMIT } from '../../../shared/config'
-
-function returnPokeData(data: any): PokeData {
-  return data as PokeData
-}
 
 describe('ListReducer', () => {
-  const testList = [returnPokeData(ampharos)]
+  const testList = [ampharosPokeData]
 
   it('should return the initial state', () => {
     expect(ListReducer(undefined, {})).toEqual({

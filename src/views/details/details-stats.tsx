@@ -34,10 +34,10 @@ export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
         const formattedLabel = formatLabel(name)
 
         return (
-          <>
+          <div key={name}>
             <SubTitle>{formattedLabel}</SubTitle>
             <Bar value={base_stat} maxValue={250} />
-          </>
+          </div>
         )
       })}
     </DetailsStatsCard>

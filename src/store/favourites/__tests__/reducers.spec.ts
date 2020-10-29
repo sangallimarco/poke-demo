@@ -1,14 +1,9 @@
-import ampharos from '../../../shared/__mocks__/ampharos.json'
-import { PokeData } from '../../../shared/types'
+import { ampharosPokeData } from '../../../shared/__data__'
 import { FavouritesReducer } from '../reducers'
 import { ADD, REMOVE } from '../types'
 
-function returnPokeData(data: any): PokeData {
-  return data as PokeData
-}
-
 describe('FavouritesReducer', () => {
-  const item = returnPokeData(ampharos)
+  const item = ampharosPokeData
 
   it('should return the initial state', () => {
     expect(FavouritesReducer(undefined, {})).toEqual({ favourites: [] })
