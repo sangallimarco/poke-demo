@@ -38,7 +38,10 @@ export const ListView: React.FC = () => {
     []
   )
 
-  const warningMessage = filteredList.length === PAGINATION_LIMIT ? (<SubTitle>Result set too large, please use search box</SubTitle>) : null
+  const warningMessage =
+    filteredList.length === PAGINATION_LIMIT ? (
+      <SubTitle>Result set too large, please use search box</SubTitle>
+    ) : null
 
   return (
     <>

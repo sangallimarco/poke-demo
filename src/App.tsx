@@ -16,19 +16,23 @@ import { isEmpty } from 'lodash'
 const { store, persistor } = configureStore()
 
 export const App: React.FC = () => {
-
   // load data if cache does not contain any
   const loadData = () => {
-    debugger
-    const {list: {list}} = store.getState()
-    if (isEmpty(list)){
+    const {
+      list: { list },
+    } = store.getState()
+    if (isEmpty(list)) {
       store.dispatch(fetchData() as any)
     }
   }
 
   return (
     <Provider store={store}>
-      <PersistGate loading={<Spinner />} persistor={persistor} onBeforeLift={loadData}>
+      <PersistGate
+        loading={<Spinner />}
+        persistor={persistor}
+        onBeforeLift={loadData}
+      >
         <Canvas>
           <BrowserRouter>
             <Container>
