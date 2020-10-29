@@ -33,6 +33,7 @@ export const ListView: React.FC = () => {
     doSetFilter(event.currentTarget.value)
   }
 
+  // eslint-disable-next-line
   const doSetFilter = useCallback(
     debounce((terms: string) => dispatch(setFilter(terms)), 250),
     []
