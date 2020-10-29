@@ -2,6 +2,8 @@
 
 Demo available here: [https://sangalli-marco-poke-demo.netlify.app/](https://sangalli-marco-poke-demo.netlify.app/)
 
+App is optimised for Chrome Browser
+
 ## Run the App
 
 Install dependencies and start the app
