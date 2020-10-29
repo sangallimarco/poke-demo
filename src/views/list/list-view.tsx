@@ -15,7 +15,9 @@ import { setFilter } from '../../store/list/actions'
 import { filterData } from '../../store/list/functions'
 
 export const ListView: React.FC = () => {
-  const filteredList = useSelector((state: RootState) => filterData(state.list.list, state.list.filter))
+  const filteredList = useSelector((state: RootState) =>
+    filterData(state.list.list, state.list.filter)
+  )
   const filter = useSelector((state: RootState) => state.list.filter)
   const list = useSelector((state: RootState) => state.list.list)
   const dispatch = useDispatch()
