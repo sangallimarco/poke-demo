@@ -14,7 +14,7 @@ export enum ThemeColors {
   ACTIVE_NAV = '#E3350D',
   BAR_CONTAINER = '#fff',
   BAR = '#404040',
-  PILL = '#eee'
+  PILL = '#eee',
 }
 
 export const typesColorMap: Record<string, string> = {
