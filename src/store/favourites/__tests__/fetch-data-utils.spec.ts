@@ -1,11 +1,6 @@
-import { PokeData } from '../../../shared/types'
 import { ampharosPokeData, jumpluffPokeData } from '../../../shared/__data__'
 import { addItem, removeItem } from '../functions'
 import { FavouriteState } from '../types'
-
-function returnPokeData(data: any): PokeData {
-  return data as PokeData
-}
 
 describe('helpers', () => {
   const testContext: FavouriteState = {

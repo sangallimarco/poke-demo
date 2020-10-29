@@ -2,18 +2,13 @@ import { PokeData } from '../../../shared/types'
 import { ampharosPokeData, jumpluffPokeData } from '../../../shared/__data__'
 import {
   filterData,
-  isInFavourites,
+  getItemById, isInFavourites,
   mergeData,
   reset,
   setFilter,
-  setNextPage,
-  getItemById,
+  setNextPage
 } from '../functions'
 import { ListState } from '../types'
-
-function returnPokeData(data: any): PokeData {
-  return data as PokeData
-}
 
 describe('helpers', () => {
   const testData: (PokeData | null)[] = [

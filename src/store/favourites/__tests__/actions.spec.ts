@@ -1,11 +1,6 @@
-import { PokeData } from '../../../shared/types'
 import { ampharosPokeData } from '../../../shared/__data__'
 import { addItemAction, removeItemAction } from '../actions'
 import { ADD, REMOVE } from '../types'
-
-function returnPokeData(data: any): PokeData {
-  return data as PokeData
-}
 
 describe('Actions', () => {
   const testData = ampharosPokeData
