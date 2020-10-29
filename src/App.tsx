@@ -11,7 +11,7 @@ import { FavouritesView } from './views/favourites/favourites-view'
 import { ListView } from './views/list/list-view'
 import { PersistGate } from 'redux-persist/integration/react'
 
-const {store, persistor} = configureStore()
+const { store, persistor } = configureStore()
 
 export const App: React.FC = () => {
   useEffect(() => {
@@ -21,18 +21,18 @@ export const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-      <Canvas>
-        <BrowserRouter>
-          <Container>
-            <Navbar />
-            <Switch>
-              <Route path="/" component={ListView} exact />
-              <Route path="/favourites" component={FavouritesView} exact />
-              <Route path="/details/:id" component={DetailsView} />
-            </Switch>
-          </Container>
-        </BrowserRouter>
-      </Canvas>
+        <Canvas>
+          <BrowserRouter>
+            <Container>
+              <Navbar />
+              <Switch>
+                <Route path="/" component={ListView} exact />
+                <Route path="/favourites" component={FavouritesView} exact />
+                <Route path="/details/:id" component={DetailsView} />
+              </Switch>
+            </Container>
+          </BrowserRouter>
+        </Canvas>
       </PersistGate>
     </Provider>
   )

@@ -1,22 +1,7 @@
 import { isEmpty, isNil } from 'lodash'
-import { PokeData, PokeGender, PokeList } from '../../shared/types'
 import { ROOT_API } from '../../shared/config'
+import { PokeData, PokeList } from '../../shared/types'
 import { ListState } from './types'
-
-// additional API endpoint can return 404 iven though the pokemon id is correct, please pass a default value
-async function fetchAdditionalData<T>(
-  id: number,
-  endpoint: string,
-  defaultValue: T
-): Promise<T> {
-  try {
-    const response = await fetch(`${ROOT_API}/${endpoint}/${id}`)
-    const data: T = await response.json()
-    return data
-  } catch (e) {
-    return defaultValue
-  }
-}
 
 async function fetchPokeData(url: string): Promise<PokeData | null> {
   try {
@@ -69,11 +54,8 @@ export function mergeData(
   ctx: ListState,
   newList: PokeData[]
 ): Partial<ListState> {
-  const { list: originalList = [], filter = '' } = ctx
-
+  const { list: originalList = []} = ctx
   const list = [...originalList, ...newList]
-  const filteredList: PokeData[] = filterData(list, filter)
-
   return { list }
 }
 
@@ -82,7 +64,6 @@ export function reset(ctx: ListState): Partial<ListState> {
 }
 
 export function setFilter(ctx: ListState, filter: string): Partial<ListState> {
-  const { list } = ctx
   return { filter, offset: 0 }
 }
 

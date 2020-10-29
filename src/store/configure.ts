@@ -6,7 +6,6 @@ import thunkMiddleware from 'redux-thunk'
 import { FavouritesReducer } from './favourites/reducers'
 import { ListReducer } from './list/reducers'
 
-
 const storage = localforage
 
 export const rootReducer = combineReducers({
@@ -22,7 +21,6 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
- 
 
 export function configureStore() {
   // TODO persist
@@ -30,4 +28,3 @@ export function configureStore() {
   const persistor = persistStore(store)
   return { store, persistor }
 }
-
