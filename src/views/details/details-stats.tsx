@@ -18,6 +18,10 @@ export const DetailsStatsCard = styled.div`
   gap: 0.5em;
 `
 
+export const StatContainer = styled.div`
+  display: contents;
+`
+
 interface DetailsStatsProps {
   stats: PokeStat[]
 }
@@ -34,10 +38,10 @@ export const DetailsStats: React.FC<DetailsStatsProps> = ({ stats }) => {
         const formattedLabel = formatLabel(name)
 
         return (
-          <div key={name}>
+          <StatContainer key={name}>
             <SubTitle>{formattedLabel}</SubTitle>
             <Bar value={base_stat} maxValue={250} />
-          </div>
+          </StatContainer>
         )
       })}
     </DetailsStatsCard>

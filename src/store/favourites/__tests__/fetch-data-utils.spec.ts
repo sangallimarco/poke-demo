@@ -1,16 +1,13 @@
 import { PokeData } from '../../../shared/types'
+import { ampharosPokeData, jumpluffPokeData } from '../../../shared/__data__'
 import { addItem, removeItem } from '../functions'
 import { FavouriteState } from '../types'
-import ampharos from '../../__tests__/ampharos.json'
-import jumpluff from '../../__tests__/jumpluff.json'
 
 function returnPokeData(data: any): PokeData {
   return data as PokeData
 }
 
 describe('helpers', () => {
-  const ampharosPokeData: PokeData = returnPokeData(ampharos)
-  const jumpluffPokeData: PokeData = returnPokeData(jumpluff)
 
   const testContext: FavouriteState = {
     favourites: [],

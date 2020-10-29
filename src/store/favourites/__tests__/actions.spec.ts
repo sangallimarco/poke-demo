@@ -1,5 +1,5 @@
 import { PokeData } from '../../../shared/types'
-import ampharos from '../../__tests__/ampharos.json'
+import { ampharosPokeData } from '../../../shared/__data__'
 import { addItemAction, removeItemAction } from '../actions'
 import { ADD, REMOVE } from '../types'
 
@@ -8,7 +8,7 @@ function returnPokeData(data: any): PokeData {
 }
 
 describe('Actions', () => {
-  const testData = returnPokeData(ampharos)
+  const testData = ampharosPokeData
 
   it('should create an action to add', () => {
     const expectedAction = {
