@@ -15,6 +15,7 @@ export const FilterWrapper = styled.div`
   overflow: hidden;
   background-color: ${ThemeColors.INPUT};
   opacity: 0.8;
+  max-width: 30em;
 
   &:hover {
     opacity: 1;

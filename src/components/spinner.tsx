@@ -26,7 +26,7 @@ export const SpinnerContainer = styled.div`
 `
 
 export const Spinner: React.FC = () => {
-  return  (
+  return (
     <SpinnerOverlay>
       <SpinnerContainer>
         <FontAwesomeIcon icon={faCompactDisc} spin={true} size="3x" />

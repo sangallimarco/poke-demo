@@ -21,7 +21,7 @@ export const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={<Spinner/>} persistor={persistor}>
+      <PersistGate loading={<Spinner />} persistor={persistor}>
         <Canvas>
           <BrowserRouter>
             <Container>
