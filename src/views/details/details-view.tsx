@@ -9,29 +9,26 @@ import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { PokeData } from '../../shared/types'
-import { setSelected } from '../../store/list/actions'
 import { add, remove } from '../../store/favourites/actions'
 import { RootState } from '../../store/configure'
-import { isInFavourites } from '../../store/list/functions'
+import { getItemById, isInFavourites } from '../../store/list/functions'
 import { DetailsImg } from './details-img'
 import { DetailsLabelValue } from './details-label-value'
 import { DetailsCol, DetailsLayout } from './details-layout'
 import { DetailsSectionTitle } from './details-section-title'
 import { DetailsStats } from './details-stats'
 
+interface DetailsViewRouteProps {
+  id: string
+}
+
 export const DetailsView: React.FC = () => {
-  const current = useSelector((state: RootState) => state)
+  const { id } = useParams<DetailsViewRouteProps>()
+  const idNumber = parseInt(id, 10)
+  const selected = useSelector((state: RootState) => getItemById(state.list.list,idNumber))
+  const foundInFavourites = useSelector((state: RootState) => isInFavourites(state.favourites.favourites,idNumber))
   const dispatch = useDispatch()
-  const { id: urlId } = useParams<{ id: string }>()
 
-  useEffect(() => {
-    dispatch(setSelected(parseInt(urlId, 10)))
-  }, [])
-
-  const {
-    list: { selected },
-    favourites: { favourites },
-  } = current
   // no selected pockemon
   if (isNil(selected)) {
     return <Title>Please select a Pokemon first</Title>
@@ -45,8 +42,8 @@ export const DetailsView: React.FC = () => {
     dispatch(remove(selected))
   }
 
-  const renderToggleButton = (favourites: PokeData[], id: number) =>
-    !isInFavourites(favourites, id) ? (
+  const renderToggleButton = () =>
+    !foundInFavourites? (
       <Button color="primary" onClick={handleAdd}>
         Add to Favourites
       </Button>
@@ -54,9 +51,9 @@ export const DetailsView: React.FC = () => {
       <Button onClick={handleRemove}>Remove from Favourites</Button>
     )
 
-  const { stats = [], id, types, name, gender } = selected
-  const hiResImage = generateImageUrl(id, true)
-  const formattedId = generatePokemonNumber(id)
+  const { stats = [], types, name, gender } = selected
+  const hiResImage = generateImageUrl(idNumber, true)
+  const formattedId = generatePokemonNumber(idNumber)
 
   return (
     <>
@@ -65,7 +62,7 @@ export const DetailsView: React.FC = () => {
         <Title>
           {name} #{formattedId}{' '}
         </Title>
-        {renderToggleButton(favourites, id)}
+        {renderToggleButton()}
       </TitleContainer>
       <DetailsLayout>
         <DetailsCol>

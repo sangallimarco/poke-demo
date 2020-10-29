@@ -6,7 +6,6 @@ import { Grid } from '../../components/grid'
 import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
-import { setSelected } from '../../store/list/actions'
 import { RootState } from '../../store/configure'
 
 export const FavouritesView: React.FC = () => {

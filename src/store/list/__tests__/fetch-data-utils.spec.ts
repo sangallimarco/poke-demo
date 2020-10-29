@@ -6,7 +6,7 @@ import {
   reset,
   setFilter,
   setNextPage,
-  setSelectedItem,
+  getItemById,
 } from '../functions'
 import { ListState } from '../types'
 import ampharos from './../__tests__/ampharos.json'
@@ -27,7 +27,6 @@ describe('helpers', () => {
   ]
   const testContext: ListState = {
     list: [ampharosPokeData],
-    filteredList: [],
     limit: 100,
     offset: 0,
     selected: null,
@@ -60,23 +59,21 @@ describe('helpers', () => {
 
   describe('setFilter()', () => {
     test('should set filter and reset offset', () => {
-      const { filteredList = [], filter, offset } = setFilter(
+      const { filter, offset } = setFilter(
         testContext,
         'ampharos'
       )
 
       expect(offset).toEqual(0)
       expect(filter).toEqual('ampharos')
-      expect(filteredList.length).toEqual(1)
     })
   })
 
   describe('reset()', () => {
     test('should reset list, filteredList and offset', () => {
-      const { offset, list, filteredList } = reset(testContext)
+      const { offset, list } = reset(testContext)
       expect(offset).toEqual(0)
       expect(list?.length).toEqual(0)
-      expect(filteredList?.length).toEqual(0)
     })
   })
 
@@ -89,7 +86,7 @@ describe('helpers', () => {
 
   describe('setSelectedItem()', () => {
     test('should set data to select', () => {
-      const { selected } = setSelectedItem(testContext, ampharosPokeData.id)
+      const selected  = getItemById(testContext, ampharosPokeData.id)
       expect(selected).toBeDefined()
     })
   })

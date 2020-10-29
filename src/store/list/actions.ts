@@ -1,7 +1,7 @@
 import { PokeData } from '../../shared/types'
 import { AnyAction } from 'redux'
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
-import { FILTER, PokeActionTypes, RESET, SET_LIST, SET_SELECTED } from './types'
+import { FILTER, PokeActionTypes, RESET, SET_LIST } from './types'
 import { fetchProcess } from './functions'
 
 export function setFilter(filter: string): PokeActionTypes {
@@ -14,13 +14,6 @@ export function setFilter(filter: string): PokeActionTypes {
 export function reset(): PokeActionTypes {
   return {
     type: RESET,
-  }
-}
-
-export function setSelected(id: number): PokeActionTypes {
-  return {
-    type: SET_SELECTED,
-    payload: id,
   }
 }
 

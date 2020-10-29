@@ -1,19 +1,18 @@
 import { PAGINATION_LIMIT } from '../../shared/config'
+import { mergeData } from './functions'
 import {
   FILTER,
-  PokeActionTypes,
-  ListState,
-  SET_LIST,
-  SET_SELECTED,
+
+  ListState, PokeActionTypes,
+
+  SET_LIST
 } from './types'
-import { filterData, mergeData, setSelectedItem } from './functions'
 
 const initialState: ListState = {
   list: [],
   offset: 0,
   limit: PAGINATION_LIMIT,
-  filter: '',
-  selected: null,
+  filter: ''
 }
 
 export function ListReducer(
@@ -27,12 +26,6 @@ export function ListReducer(
         ...state,
         filter,
       }
-    case SET_SELECTED:
-      return {
-        ...state,
-        ...setSelectedItem(state, action.payload),
-      }
-
     case SET_LIST:
       return {
         ...state,

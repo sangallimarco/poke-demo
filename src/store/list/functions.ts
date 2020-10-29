@@ -67,30 +67,6 @@ export function filterData(
   ) as PokeData[]
 }
 
-export async function fetchDetailsProcess(
-  ctx: ListState
-): Promise<Partial<ListState>> {
-  const { selected: originalSelected } = ctx
-
-  if (isNil(originalSelected)) {
-    return Promise.reject()
-  }
-
-  const { id } = originalSelected
-
-  try {
-    const gender = await fetchAdditionalData<PokeGender>(id, 'gender', {
-      name: 'Undefined',
-      id: 0,
-    })
-
-    const selected = { ...originalSelected, gender }
-    return { selected }
-  } catch (e) {
-    return Promise.reject()
-  }
-}
-
 export function mergeData(
   ctx: ListState,
   newList: PokeData[]
@@ -118,13 +94,11 @@ export function setNextPage(ctx: ListState): Partial<ListState> {
   return { offset }
 }
 
-export function setSelectedItem(
-  ctx: ListState,
+export function getItemById(
+  list: PokeData[],
   matchId: number
-): Partial<ListState> {
-  const { list } = ctx
-  const selected = list.find(({ id }) => id === matchId)
-  return { selected }
+): PokeData | undefined {
+  return list.find(({ id }) => id === matchId)
 }
 
 export function isInFavourites(
