@@ -27,7 +27,10 @@ async function fetchPokeData(url: string): Promise<PokeData | null> {
   }
 }
 
-export async function fetchProcess(limit: number = 500, offset: number = 0): Promise<PokeData[]> {
+export async function fetchProcess(
+  limit: number = 500,
+  offset: number = 0
+): Promise<PokeData[]> {
   try {
     const resources = await fetch(
       `${ROOT_API}/pokemon?limit=${limit}&offset=${offset}`
