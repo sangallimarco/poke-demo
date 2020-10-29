@@ -8,7 +8,6 @@ function returnPokeData(data: any): PokeData {
 }
 
 describe('FavouritesReducer', () => {
-  const testList = [returnPokeData(ampharos)]
   const item = returnPokeData(ampharos)
 
   it('should return the initial state', () => {

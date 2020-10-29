@@ -2,6 +2,7 @@ import { ListReducer } from '../reducers'
 import { FILTER, SET_LIST } from '../types'
 import ampharos from '../../__tests__/ampharos.json'
 import { PokeData } from '../../../shared/types'
+import { PAGINATION_LIMIT } from '../../../shared/config'
 
 function returnPokeData(data: any): PokeData {
   return data as PokeData
@@ -13,7 +14,7 @@ describe('ListReducer', () => {
   it('should return the initial state', () => {
     expect(ListReducer(undefined, {})).toEqual({
       filter: '',
-      limit: 50,
+      limit: PAGINATION_LIMIT,
       list: [],
       offset: 0,
     })
@@ -25,7 +26,7 @@ describe('ListReducer', () => {
         type: FILTER,
         payload: 'Amp',
       })
-    ).toEqual({ filter: 'Amp', limit: 50, list: [], offset: 0 })
+    ).toEqual({ filter: 'Amp', limit: PAGINATION_LIMIT, list: [], offset: 0 })
   })
 
   it('should handle set list', () => {
@@ -34,6 +35,6 @@ describe('ListReducer', () => {
         type: SET_LIST,
         payload: testList,
       })
-    ).toEqual({ filter: '', limit: 50, list: testList, offset: 0 })
+    ).toEqual({ filter: '', limit: PAGINATION_LIMIT, list: testList, offset: 0 })
   })
 })

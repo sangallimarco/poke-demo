@@ -1,5 +1,5 @@
 import { isEmpty, isNil } from 'lodash'
-import { ROOT_API } from '../../shared/config'
+import { FETCH_LIMIT, ROOT_API } from '../../shared/config'
 import { PokeData, PokeList } from '../../shared/types'
 import { ListState } from './types'
 
@@ -13,7 +13,7 @@ async function fetchPokeData(url: string): Promise<PokeData | null> {
 }
 
 export async function fetchProcess(
-  limit: number = 500,
+  limit: number = FETCH_LIMIT,
   offset: number = 0
 ): Promise<PokeData[]> {
   try {

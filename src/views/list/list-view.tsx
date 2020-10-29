@@ -1,10 +1,11 @@
-import { debounce } from 'lodash'
+import { debounce, isEmpty } from 'lodash'
 import React, { ChangeEvent, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Card } from '../../components/card'
 import { FilterContainer } from '../../components/filter'
 import { Grid } from '../../components/grid'
+import { Spinner } from '../../components/spinner'
 import { SubTitle } from '../../components/sub-title'
 import { TextInput } from '../../components/text-input'
 import { Title } from '../../components/title'
@@ -46,6 +47,7 @@ export const ListView: React.FC = () => {
 
   return (
     <>
+      {isEmpty(list) ? <Spinner/> : null}
       <Title>
         Pokèmons {filteredList.length} / {list.length}
       </Title>
