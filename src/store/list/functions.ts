@@ -38,16 +38,19 @@ export async function fetchProcess(
 // filter
 export function filterData(
   data: (PokeData | null)[],
-  filter: string
+  filter: string,
+  limit: number = 0
 ): PokeData[] {
   const filterRegx = new RegExp(`^${filter}`, 'i')
-  return data.filter(
+  const filtered = data.filter(
     (pokemon) =>
       !isNil(pokemon) &&
       (filterRegx.test(pokemon.name) ||
         filter === pokemon.id.toString() ||
         isEmpty(filter))
   ) as PokeData[]
+
+  return limit > 0 ? filtered.slice(0, limit) : filtered
 }
 
 export function mergeData(
@@ -59,11 +62,11 @@ export function mergeData(
   return { list }
 }
 
-export function reset(ctx: ListState): Partial<ListState> {
+export function reset(): Partial<ListState> {
   return { list: [], offset: 0 }
 }
 
-export function setFilter(ctx: ListState, filter: string): Partial<ListState> {
+export function setFilter(filter: string): Partial<ListState> {
   return { filter, offset: 0 }
 }
 

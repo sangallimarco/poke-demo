@@ -11,17 +11,24 @@ import { FavouritesView } from './views/favourites/favourites-view'
 import { ListView } from './views/list/list-view'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Spinner } from './components/spinner'
+import { isEmpty } from 'lodash'
 
 const { store, persistor } = configureStore()
 
 export const App: React.FC = () => {
-  useEffect(() => {
-    store.dispatch(fetchData() as any)
-  }, [])
+
+  // load data if cache does not contain any
+  const loadData = () => {
+    debugger
+    const {list: {list}} = store.getState()
+    if (isEmpty(list)){
+      store.dispatch(fetchData() as any)
+    }
+  }
 
   return (
     <Provider store={store}>
-      <PersistGate loading={<Spinner />} persistor={persistor}>
+      <PersistGate loading={<Spinner />} persistor={persistor} onBeforeLift={loadData}>
         <Canvas>
           <BrowserRouter>
             <Container>

@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Button } from '../../components/button'
+import { Img } from '../../components/image'
 import { TypePills } from '../../components/pills'
 import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
@@ -10,7 +11,6 @@ import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { RootState } from '../../store/configure'
 import { add, remove } from '../../store/favourites/actions'
 import { getItemById, isInFavourites } from '../../store/list/functions'
-import { DetailsImg } from './details-img'
 import { DetailsLabelValue } from './details-label-value'
 import { DetailsCol, DetailsLayout } from './details-layout'
 import { DetailsSectionTitle } from './details-section-title'
@@ -67,7 +67,7 @@ export const DetailsView: React.FC = () => {
       </TitleContainer>
       <DetailsLayout>
         <DetailsCol>
-          <DetailsImg src={hiResImage} />
+          <Img src={hiResImage} placeholder="/placeholder-475.png" />
           <DetailsSectionTitle>Stats</DetailsSectionTitle>
           <DetailsStats stats={stats} />
         </DetailsCol>
