@@ -4,10 +4,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { ThemeColors } from '../shared/colors'
 
-interface SpinnerProps {
-  visibility: boolean
-}
-
 export const SpinnerOverlay = styled.div`
   position: fixed;
   background-color: ${ThemeColors.CARD};
@@ -29,12 +25,12 @@ export const SpinnerContainer = styled.div`
   margin-left: -1.5em;
 `
 
-export const Spinner: React.FC<SpinnerProps> = ({ visibility }) => {
-  return visibility ? (
+export const Spinner: React.FC = () => {
+  return  (
     <SpinnerOverlay>
       <SpinnerContainer>
         <FontAwesomeIcon icon={faCompactDisc} spin={true} size="3x" />
       </SpinnerContainer>
     </SpinnerOverlay>
-  ) : null
+  )
 }

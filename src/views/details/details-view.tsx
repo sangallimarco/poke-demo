@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Button } from '../../components/button'
 import { TypePills } from '../../components/pills'
-import { Spinner } from '../../components/spinner'
 import { SubTitle } from '../../components/sub-title'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
@@ -60,7 +59,6 @@ export const DetailsView: React.FC = () => {
 
   return (
     <>
-      <Spinner visibility={false} />
       <TitleContainer>
         <Title>
           {name} #{formattedId}{' '}

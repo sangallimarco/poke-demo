@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom'
 import { Card } from '../../components/card'
 import { FilterContainer } from '../../components/filter'
 import { Grid } from '../../components/grid'
-import { Spinner } from '../../components/spinner'
 import { TextInput } from '../../components/text-input'
 import { Title } from '../../components/title'
 import { Routes } from '../../shared/routes'
@@ -39,7 +38,6 @@ export const ListView: React.FC = () => {
 
   return (
     <>
-      <Spinner visibility={false} />
       <Title>
         Pokèmons {filteredList.length} / {list.length}
       </Title>

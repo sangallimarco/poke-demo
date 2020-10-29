@@ -10,6 +10,7 @@ import { DetailsView } from './views/details/details-view'
 import { FavouritesView } from './views/favourites/favourites-view'
 import { ListView } from './views/list/list-view'
 import { PersistGate } from 'redux-persist/integration/react'
+import { Spinner } from './components/spinner'
 
 const { store, persistor } = configureStore()
 
@@ -20,7 +21,7 @@ export const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<Spinner/>} persistor={persistor}>
         <Canvas>
           <BrowserRouter>
             <Container>
