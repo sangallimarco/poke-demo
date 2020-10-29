@@ -2,6 +2,13 @@
 
 Demo available here: [https://sangalli-marco-poke-demo.netlify.app/](https://sangalli-marco-poke-demo.netlify.app/)
 
+## Run the App
+
+Install dependencies and start the app
+
+### `yarn install`
+### `yarn start`
+
 ## Available Scripts
 
 In the project directory, you can run:
