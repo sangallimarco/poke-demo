@@ -9,6 +9,10 @@ export const DetailsLayout = styled.div`
   @media ${device.tablet} {
     grid-template-columns: 30em auto;
   }
+
+  @media ${device.desktop} {
+    max-width: 100em;
+  }
 `
 
 export const DetailsCol = styled.div`

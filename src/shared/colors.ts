@@ -13,7 +13,7 @@ export enum ThemeColors {
   NAV = '#ddd',
   ACTIVE_NAV = '#E3350D',
   BAR_CONTAINER = '#fff',
-  BAR = '#404040',
+  BAR = '#4c7689',
   PILL = '#eee',
 }
 
