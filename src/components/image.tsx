@@ -7,6 +7,8 @@ const ImageContainer = styled.img`
   max-width: 100%;
   border-radius: 1em;
   border-radius: 0.5em;
+  min-width: 12em;
+  min-height: 12em;
   background-color: ${ThemeColors.IMG};
 `
 export interface ImageProps {

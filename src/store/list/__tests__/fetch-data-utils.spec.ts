@@ -58,9 +58,7 @@ describe('helpers', () => {
 
   describe('setFilter()', () => {
     test('should set filter and reset offset', () => {
-      const { filter, offset } = setFilter(testContext, 'ampharos')
-
-      expect(offset).toEqual(0)
+      const { filter } = setFilter('ampharos')
       expect(filter).toEqual('ampharos')
     })
   })

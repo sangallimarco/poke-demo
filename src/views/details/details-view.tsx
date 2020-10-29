@@ -8,7 +8,7 @@ import { MovePills, TypePills } from '../../components/pills'
 import { Title, TitleContainer } from '../../components/title'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { RootState } from '../../store/configure'
-import { add, remove } from '../../store/favourites/actions'
+import { addItemAction, removeItemAction } from '../../store/favourites/actions'
 import { getItemById, isInFavourites } from '../../store/list/functions'
 import { DetailsCol, DetailsLayout } from './details-layout'
 import { DetailsSectionTitle } from './details-section-title'
@@ -35,11 +35,11 @@ export const DetailsView: React.FC = () => {
   }
 
   const handleAdd = () => {
-    dispatch(add(selected))
+    dispatch(addItemAction(selected))
   }
 
   const handleRemove = () => {
-    dispatch(remove(selected))
+    dispatch(removeItemAction(selected))
   }
 
   const renderToggleButton = () =>

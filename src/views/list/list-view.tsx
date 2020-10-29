@@ -12,7 +12,7 @@ import { PAGINATION_LIMIT } from '../../shared/config'
 import { Routes } from '../../shared/routes'
 import { PokeData } from '../../shared/types'
 import { RootState } from '../../store/configure'
-import { setFilter } from '../../store/list/actions'
+import { setFilterAction } from '../../store/list/actions'
 import { filterData } from '../../store/list/functions'
 
 export const ListView: React.FC = () => {
@@ -35,7 +35,7 @@ export const ListView: React.FC = () => {
 
   // eslint-disable-next-line
   const doSetFilter = useCallback(
-    debounce((terms: string) => dispatch(setFilter(terms)), 250),
+    debounce((terms: string) => dispatch(setFilterAction(terms)), 250),
     []
   )
 

@@ -5,12 +5,7 @@ import { Spinner } from '../spinner'
 
 describe('Spinner', () => {
   test('should render when visibility is true', () => {
-    const wrapper = shallow(<Spinner visibility={true} />)
+    const wrapper = shallow(<Spinner />)
     expect(wrapper.find(FontAwesomeIcon).length).toBe(1)
-  })
-
-  test('should not render when visibility is false', () => {
-    const wrapper = shallow(<Spinner visibility={false} />)
-    expect(wrapper.find(FontAwesomeIcon).length).toBe(0)
   })
 })
