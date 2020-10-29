@@ -59,10 +59,7 @@ describe('helpers', () => {
 
   describe('setFilter()', () => {
     test('should set filter and reset offset', () => {
-      const { filter, offset } = setFilter(
-        testContext,
-        'ampharos'
-      )
+      const { filter, offset } = setFilter(testContext, 'ampharos')
 
       expect(offset).toEqual(0)
       expect(filter).toEqual('ampharos')
@@ -86,7 +83,7 @@ describe('helpers', () => {
 
   describe('setSelectedItem()', () => {
     test('should set data to select', () => {
-      const selected  = getItemById(testContext, ampharosPokeData.id)
+      const selected = getItemById(testContext, ampharosPokeData.id)
       expect(selected).toBeDefined()
     })
   })

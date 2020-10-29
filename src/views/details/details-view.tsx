@@ -25,8 +25,12 @@ interface DetailsViewRouteProps {
 export const DetailsView: React.FC = () => {
   const { id } = useParams<DetailsViewRouteProps>()
   const idNumber = parseInt(id, 10)
-  const selected = useSelector((state: RootState) => getItemById(state.list.list,idNumber))
-  const foundInFavourites = useSelector((state: RootState) => isInFavourites(state.favourites.favourites,idNumber))
+  const selected = useSelector((state: RootState) =>
+    getItemById(state.list.list, idNumber)
+  )
+  const foundInFavourites = useSelector((state: RootState) =>
+    isInFavourites(state.favourites.favourites, idNumber)
+  )
   const dispatch = useDispatch()
 
   // no selected pockemon
@@ -43,7 +47,7 @@ export const DetailsView: React.FC = () => {
   }
 
   const renderToggleButton = () =>
-    !foundInFavourites? (
+    !foundInFavourites ? (
       <Button color="primary" onClick={handleAdd}>
         Add to Favourites
       </Button>

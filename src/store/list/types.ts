@@ -17,10 +17,7 @@ interface SetList {
   payload: PokeData[]
 }
 
-export type PokeActionTypes =
-  | FilterAction
-  | ResetMessageAction
-  | SetList
+export type PokeActionTypes = FilterAction | ResetMessageAction | SetList
 
 export interface ListState {
   list: PokeData[]
