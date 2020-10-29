@@ -10,7 +10,6 @@ import { device } from '../shared/types'
 export const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 1em;
 `
 
 export const NavElem = styled(NavLink)`
@@ -18,10 +17,15 @@ export const NavElem = styled(NavLink)`
   display: block;
   text-decoration: none;
   color: ${ThemeColors.TEXT};
-  font-size: 1.3em;
+  font-size: 1em;
   padding: 0.8em 1em;
   border-radius: 0.5em;
   opacity: 0.9;
+  margin: 0.5em;
+
+  @media ${device.tablet} {
+    font-size: 1.3em;
+  }
 
   &:hover {
     opacity: 1;
@@ -44,18 +48,21 @@ export const NavBarInner = styled.div`
   }
 `
 
+export const NavBarIcon = styled(FontAwesomeIcon)`
+  margin: 0.2em;
+`
+
 export const Navbar: React.FC = (): JSX.Element => {
   return (
     <NavContainer>
       <NavElem to={Routes.HOME} exact>
         <NavBarInner>
-          <FontAwesomeIcon icon={faList} /> Home
+          <NavBarIcon icon={faList} /> Home
         </NavBarInner>
       </NavElem>
       <NavElem to={Routes.FAVOURITES}>
         <NavBarInner>
-          {' '}
-          <FontAwesomeIcon icon={faBook} /> Favourites
+          <NavBarIcon icon={faBook} /> Favourites
         </NavBarInner>
       </NavElem>
     </NavContainer>

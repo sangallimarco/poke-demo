@@ -8,7 +8,6 @@ import { PokeMove, PokeTypeSlot } from '../shared/types'
 export const PillsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
   flex-wrap: wrap;
 `
 
@@ -26,6 +25,7 @@ export const Pill = styled.div<PillProps>`
   background: ${({ color }) => color};
   padding: 0.5em 1em;
   border: none;
+  margin: 0.2em;
   border-radius: 0.2em;
   font-size: 0.9em;
   color: ${({ inverted }) =>
