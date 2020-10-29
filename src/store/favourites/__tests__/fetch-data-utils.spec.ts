@@ -8,7 +8,6 @@ function returnPokeData(data: any): PokeData {
 }
 
 describe('helpers', () => {
-
   const testContext: FavouriteState = {
     favourites: [],
   }

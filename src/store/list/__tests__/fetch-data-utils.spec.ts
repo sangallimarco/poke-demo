@@ -16,7 +16,6 @@ function returnPokeData(data: any): PokeData {
 }
 
 describe('helpers', () => {
-
   const testData: (PokeData | null)[] = [
     ampharosPokeData,
     jumpluffPokeData,
