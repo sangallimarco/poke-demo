@@ -1,5 +1,5 @@
 import { debounce, isEmpty } from 'lodash'
-import React, { ChangeEvent, ReactNode, useCallback, useMemo } from 'react'
+import React, { ChangeEvent, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Card } from '../../components/card'
@@ -20,11 +20,10 @@ interface WarningMessageProps {
   list: PokeData[]
 }
 
-const WarningMessage: React.FC<WarningMessageProps> = ({list}) => {
-    return list.length === PAGINATION_LIMIT ? (
-      <SubTitle>Result set too large, please use search box</SubTitle>
-    ) : null
-
+const WarningMessage: React.FC<WarningMessageProps> = ({ list }) => {
+  return list.length === PAGINATION_LIMIT ? (
+    <SubTitle>Result set too large, please use search box</SubTitle>
+  ) : null
 }
 
 export const ListViewBase: React.FC = () => {
@@ -57,7 +56,7 @@ export const ListViewBase: React.FC = () => {
       <Title>
         Pokèmons {filteredList.length} / {list.length}
       </Title>
-      <WarningMessage list={filteredList}/>
+      <WarningMessage list={filteredList} />
       <FilterContainer>
         <TextInput
           defaultValue={filter}
