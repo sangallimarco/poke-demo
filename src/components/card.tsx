@@ -59,7 +59,7 @@ export const Card: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
 
   return (
     <CardContainer onClick={handleClick}>
-      <CardImg src={hiResImage} placeholder="/placeholder-215.png" />
+      <CardImg src={hiResImage} alt={name}/>
       <CardNumber>#{position}</CardNumber>
       <CardTitle>{name}</CardTitle>
       <TypePills types={types} />
