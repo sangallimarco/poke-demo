@@ -14,11 +14,11 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   onAdd,
   onRemove,
   addLabel,
-  removeLabel
+  removeLabel,
 }) =>
   !status ? (
     <Button color="primary" onClick={onAdd}>
-     {addLabel}
+      {addLabel}
     </Button>
   ) : (
     <Button onClick={onRemove}>{removeLabel}</Button>
