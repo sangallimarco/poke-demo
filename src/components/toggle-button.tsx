@@ -5,17 +5,21 @@ interface ToggleButtonProps {
   status: boolean
   onAdd: () => void
   onRemove: () => void
+  addLabel: string
+  removeLabel: string
 }
 
 export const ToggleButton: React.FC<ToggleButtonProps> = ({
   status,
   onAdd,
   onRemove,
+  addLabel,
+  removeLabel
 }) =>
   !status ? (
     <Button color="primary" onClick={onAdd}>
-      Add to Favourites
+     {addLabel}
     </Button>
   ) : (
-    <Button onClick={onRemove}>Remove from Favourites</Button>
+    <Button onClick={onRemove}>{removeLabel}</Button>
   )

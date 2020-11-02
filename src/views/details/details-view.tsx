@@ -2,11 +2,10 @@ import { isNil } from 'lodash'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { Button } from '../../components/button'
 import { Img } from '../../components/image'
 import { MovePills, TypePills } from '../../components/pills'
 import { Title, TitleContainer } from '../../components/title'
-import { ToggleButton } from '../../components/toggle'
+import { ToggleButton } from '../../components/toggle-button'
 import { generateImageUrl, generatePokemonNumber } from '../../shared/helpers'
 import { RootState } from '../../store/configure'
 import { addItemAction, removeItemAction } from '../../store/favourites/actions'
@@ -43,8 +42,6 @@ export const DetailsView: React.FC = () => {
     dispatch(removeItemAction(selected))
   }
 
-  
-
   const { stats = [], types, name, moves } = selected
   const hiResImage = generateImageUrl(idNumber, true)
   const formattedId = generatePokemonNumber(idNumber)
@@ -55,7 +52,13 @@ export const DetailsView: React.FC = () => {
         <Title>
           {name} #{formattedId}{' '}
         </Title>
-        <ToggleButton status={foundInFavourites} onAdd={handleAdd} onRemove={handleRemove}/>
+        <ToggleButton
+          status={foundInFavourites}
+          onAdd={handleAdd}
+          onRemove={handleRemove}
+          addLabel="Add to Favourites"
+          removeLabel="Remove from Favourites"
+        />
       </TitleContainer>
       <DetailsLayout>
         <DetailsCol>
