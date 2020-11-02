@@ -57,7 +57,7 @@ describe('helpers', () => {
 
   describe('reset()', () => {
     test('should reset list, filteredList and offset', () => {
-      const { offset, list } = reset(testContext)
+      const { offset, list } = reset()
       expect(offset).toEqual(0)
       expect(list?.length).toEqual(0)
     })
