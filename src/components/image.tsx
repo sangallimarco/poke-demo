@@ -16,5 +16,5 @@ export interface ImageProps {
 }
 
 export const Img: React.FC<ImageProps> = ({ src, alt }) => {
-  return <ImageContainer src={src} loading="lazy" alt={alt}/>
+  return <ImageContainer src={src} loading="lazy" alt={alt} />
 }

@@ -62,7 +62,7 @@ export const DetailsView: React.FC = () => {
       </TitleContainer>
       <DetailsLayout>
         <DetailsCol>
-          <Img src={hiResImage} alt={name}/>
+          <Img src={hiResImage} alt={name} />
           <DetailsSectionTitle>Stats</DetailsSectionTitle>
           <DetailsStats stats={stats} />
         </DetailsCol>
