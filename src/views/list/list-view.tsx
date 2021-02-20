@@ -16,7 +16,17 @@ import { RootState } from '../../store/configure'
 import { setFilterAction } from '../../store/list/actions'
 import { filterData } from '../../store/list/functions'
 
-export const ListView: React.FC = () => {
+interface WarningMessageProps {
+  list: PokeData[]
+}
+
+const WarningMessage: React.FC<WarningMessageProps> = ({ list }) => {
+  return list.length === PAGINATION_LIMIT ? (
+    <SubTitle>Result set too large, please use search box</SubTitle>
+  ) : null
+}
+
+export const ListViewBase: React.FC = () => {
   const filteredList = useSelector((state: RootState) =>
     filterData(state.list.list, state.list.filter, PAGINATION_LIMIT)
   )
@@ -40,18 +50,13 @@ export const ListView: React.FC = () => {
     []
   )
 
-  const warningMessage =
-    filteredList.length === PAGINATION_LIMIT ? (
-      <SubTitle>Result set too large, please use search box</SubTitle>
-    ) : null
-
   return (
     <>
       {isEmpty(list) ? <Spinner /> : null}
       <Title>
         Pokèmons {filteredList.length} / {list.length}
       </Title>
-      {warningMessage}
+      <WarningMessage list={filteredList} />
       <FilterContainer>
         <TextInput
           defaultValue={filter}
@@ -72,3 +77,5 @@ export const ListView: React.FC = () => {
     </>
   )
 }
+
+export const ListView = React.memo(ListViewBase)

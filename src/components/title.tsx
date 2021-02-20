@@ -6,6 +6,11 @@ export const Title = styled.h1`
   justify-content: center;
   text-transform: capitalize;
   font-family: 'Varela Round', sans-serif;
+  font-size: 1.3em;
+
+  @media ${device.tablet} {
+    font-size: 2em;
+  }
 `
 
 export const TitleContainer = styled.div`

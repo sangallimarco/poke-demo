@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ThemeColors } from '../shared/colors'
 import { generateImageUrl, generatePokemonNumber } from '../shared/helpers'
-import { PokeData } from '../shared/types'
+import { device, PokeData } from '../shared/types'
 import { Img } from './image'
 import { TypePills } from './pills'
 
@@ -13,10 +13,12 @@ const CardContainer = styled.div`
   border-radius: 0.5em;
   background-color: ${ThemeColors.CARD};
   display: grid;
-  grid-auto-flow: vertical;
   gap: 0.5em;
   cursor: pointer;
   transition: 150ms transform linear;
+  content-visibility: auto;
+
+  width: 100%;
 
   &:hover {
     transform: scale(1.05);
@@ -31,6 +33,13 @@ const CardTitle = styled.div`
 const CardNumber = styled.div`
   font-size: 0.9em;
   color: ${ThemeColors.SECONDARY_TEXT};
+`
+
+const CardImg = styled(Img)`
+  width: 100vw;
+  @media ${device.desktop} {
+    width: auto;
+  }
 `
 
 interface PokemonCardProps {
@@ -50,7 +59,7 @@ export const Card: React.FC<PokemonCardProps> = ({ data, onSelect }) => {
 
   return (
     <CardContainer onClick={handleClick}>
-      <Img src={hiResImage} placeholder="/placeholder-215.png" />
+      <CardImg src={hiResImage} alt={name} />
       <CardNumber>#{position}</CardNumber>
       <CardTitle>{name}</CardTitle>
       <TypePills types={types} />
